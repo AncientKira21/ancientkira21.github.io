@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | AncientKira</title>
+  <style>
+    :root {
+      --bg1: #0f1025;
+      --bg2: #1d1f3a;
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-strong: rgba(255, 255, 255, 0.14);
+      --stroke: rgba(255, 255, 255, 0.18);
+      --text: #f5f7ff;
+      --muted: rgba(255, 255, 255, 0.75);
+      --primary: #8ec5fc;
+      --secondary: #e0c3fc;
+      --accent: #c2ffd8;
+      --shadow: rgba(0, 0, 0, 0.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(142, 197, 252, 0.26), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(224, 195, 252, 0.22), transparent 35%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01), rgba(255,255,255,0.05));
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin-top: 20px;
+      border-radius: 22px;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: white;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover {
+      background: rgba(255,255,255,0.08);
+      color: white;
+    }
+
+    .nav a.active {
+      background: linear-gradient(135deg, rgba(142,197,252,0.18), rgba(224,195,252,0.18));
+      color: white;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .hero {
+      margin-top: 42px;
+      padding: 46px 28px;
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.24), transparent 60%);
+      filter: blur(10px);
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+      max-width: 760px;
+    }
+
+    .hero p {
+      margin: 18px 0 0;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid var(--stroke);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, rgba(142,197,252,0.25), rgba(224,195,252,0.25));
+      color: white;
+    }
+
+    .button.secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .projects-grid {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      padding: 22px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.07), transparent 50%);
+      pointer-events: none;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(194, 255, 216, 0.12);
+      color: #d8ffe7;
+      border: 1px solid rgba(194,255,216,0.25);
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #7ef0a5;
+      box-shadow: 0 0 12px rgba(126, 240, 165, 0.8);
+    }
+
+    .project-card h2 {
+      margin: 18px 0 10px;
+      font-size: 1.6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card p {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-link {
+      color: white;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    .mini {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 700px) {
+      .topbar {
+        padding: 16px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        width: 100%;
+      }
+
+      .nav a {
+        flex: 1 1 auto;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 32px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar glass">
+      <div class="brand">AncientKira</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="Projects.html" class="active">Projects</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero glass">
+        <div class="kicker">Portfolio</div>
+        <h1>Projects built with creativity and curiosity.</h1>
+        <p>
+          A collection of experiments, tools, and ideas shaping the work behind AncientKira.
+          Each project reflects a mix of technical craft, visual design, and storytelling.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#projects">View Projects</a>
+          <a class="button secondary" href="index.html">Back Home</a>
+        </div>
+      </section>
+
+      <section id="projects" class="projects-grid" aria-label="Project list">
+        <article class="project-card glass">
+          <div class="project-meta">
+            <span class="tag">Minecraft</span>
+            <span class="status">Active</span>
+          </div>
+          <div>
+            <h2>MCA Remastered</h2>
+            <p>
+              Built upon MCA Reborn, this project expands the experience with richer village communication,
+              immersive storytelling, and a playful set of in-world ideas and memes.
+            </p>
+          </div>
+          <div class="project-footer">
+            <span class="mini">Modding / Java</span>
+            <a href="https://github.com/AncientKira21" class="project-link">Open</a>
+          </div>
+        </article>
+
+        <article class="project-card glass">
+          <div class="project-meta">
+            <span class="tag">Web</span>
+            <span class="status">In Progress</span>
+          </div>
+          <div>
+            <h2>AncientKira Site</h2>
+            <p>
+              A fresh personal website concept centered around liquid-glass styling, modern layout design,
+              and a sharper identity for sharing projects and ideas online.
+            </p>
+          </div>
+          <div class="project-footer">
+            <span class="mini">HTML / CSS</span>
+            <a href="index.html" class="project-link">Visit</a>
+          </div>
+        </article>
+
+        <article class="project-card glass">
+          <div class="project-meta">
+            <span class="tag">Creative</span>
+            <span class="status">Coming Soon</span>
+          </div>
+          <div>
+            <h2>Next Experiments</h2>
+            <p>
+              New creative explorations are being planned, including interactive ideas, visual prototypes,
+              and more personal projects shaped by experimentation and design.
+            </p>
+          </div>
+          <div class="project-footer">
+            <span class="mini">Research</span>
+            <a href="#" class="project-link">Soon</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
