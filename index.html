@@ -1,278 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ancient Kira's Site</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AncientKira | Home</title>
+  <style>
+    :root {
+      --bg1: #0f1025;
+      --bg2: #1d1f3a;
+      --stroke: rgba(255, 255, 255, 0.18);
+      --text: #f5f7ff;
+      --muted: rgba(255, 255, 255, 0.75);
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+    * { box-sizing: border-box; }
 
-        /* Liquid Glass Effect */
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
+    html { scroll-behavior: smooth; }
 
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 40px;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(142, 197, 252, 0.26), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(224, 195, 252, 0.22), transparent 35%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      overflow-x: hidden;
+    }
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01), rgba(255,255,255,0.05));
+      pointer-events: none;
+    }
 
-        nav {
-            display: flex;
-            gap: 30px;
-        }
+    a { color: inherit; text-decoration: none; }
 
-        nav a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 10px;
-        }
+    .glass {
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
 
-        nav a:hover {
-            color: white;
-            background: rgba(255, 255, 255, 0.1);
-        }
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin-top: 20px;
+      border-radius: 22px;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 80px;
-        }
+    .brand {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: white;
+    }
 
-        .hero-content {
-            color: white;
-            max-width: 700px;
-        }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-        .hero-content h1 {
-            font-size: 64px;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
+    .nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
 
-        .hero-content p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.95);
-            line-height: 1.6;
-        }
+    .nav a:hover,
+    .nav a.active {
+      background: linear-gradient(135deg, rgba(142,197,252,0.18), rgba(224,195,252,0.18));
+      color: white;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 14px 40px;
-            margin: 10px;
-            border: none;
-            border-radius: 15px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
+    .hero {
+      margin-top: 42px;
+      padding: 46px 28px;
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .btn-primary {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-        }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.24), transparent 60%);
+      filter: blur(10px);
+    }
 
-        .btn-primary:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.4);
-        }
+    .kicker {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.95);
-            color: #667eea;
-            font-weight: bold;
-        }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+      max-width: 760px;
+    }
 
-        .btn-secondary:hover {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
+    .hero p {
+      margin: 18px 0 0;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
 
-        /* Cards Section */
-        .cards-section {
-            padding: 80px 0;
-        }
+    .actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
 
-        .section-title {
-            text-align: center;
-            color: white;
-            font-size: 44px;
-            margin-bottom: 60px;
-            font-weight: 700;
-        }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid var(--stroke);
+    }
 
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    }
 
-        .card {
-            padding: 40px 30px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
+    .button.primary {
+      background: linear-gradient(135deg, rgba(142,197,252,0.25), rgba(224,195,252,0.25));
+      color: white;
+    }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px 0 rgba(31, 38, 135, 0.5);
-        }
+    .button.secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
 
-        .card-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      margin: 60px 0 40px;
+      color: white;
+      text-align: center;
+      letter-spacing: -0.03em;
+    }
 
-        .card h3 {
-            color: white;
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
 
-        .card p {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 14px;
-            line-height: 1.6;
-        }
+    .feature-card {
+      padding: 22px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        /* Footer */
-        footer {
-            padding: 40px 0;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 60px;
-        }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 42px rgba(31, 38, 135, 0.35);
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                gap: 15px;
-            }
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
 
-            .hero-content h1 {
-                font-size: 36px;
-            }
+    .feature-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.4rem;
+    }
 
-            .hero-content p {
-                font-size: 16px;
-            }
+    .feature-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+      font-size: 0.95rem;
+    }
 
-            .section-title {
-                font-size: 32px;
-            }
+    footer {
+      margin-top: 60px;
+      padding: 28px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.7;
+    }
 
-            header {
-                padding: 15px 20px;
-            }
-        }
-    </style>
+    @media (max-width: 700px) {
+      .topbar {
+        padding: 16px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav { width: 100%; }
+      .nav a { flex: 1 1 auto; text-align: center; }
+      .hero { padding: 32px 20px; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo">AncientKira</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Coming Soon!</a>
-        </nav>
+  <div class="page-shell">
+    <header class="topbar glass">
+      <div class="brand">AncientKira</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="Projects.html">Projects</a>
+        <a href="#about">About</a>
+      </nav>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Welcome to Ancient Kira's Site!</h1>
-                <p>Note: This site is in beta.</p>
-                <div>
-                    <button class="btn btn-primary">Projects</button>
-                    <button class="btn btn-secondary">Learn More</button>
-                </div>
-            </div>
+    <main>
+      <section class="hero glass">
+        <div class="kicker">Welcome</div>
+        <h1>Creative exploration through code and design.</h1>
+        <p>
+          I'm AncientKira, exploring the intersection of creativity, technical craft, and digital design.
+          Building projects that blend storytelling with technical innovation.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="Projects.html">View Projects</a>
+          <a class="button secondary" href="#about">Learn More</a>
         </div>
-    </section>
+      </section>
 
-    <section class="cards-section" id="about">
-        <div class="container">
-            <h2 class="section-title">Featured</h2>
-            <div class="cards-grid">
-                <div class="card glass">
-                    <div class="card-icon">✨</div>
-                    <h3>MCA Remastered</h3>
-                    <p>Built upon MCA Reborn, this Minecraft mod will allow you to communicate with villagers! Also ships with some stories and memes.</p>
-                </div>
-                <div class="card glass">
-                    <div class="card-icon">⚡</div>
-                    <h3>Comign Soon!</h3>
-                    <p>Coming Soon!</p>
-                </div>
-                <div class="card glass">
-                    <div class="card-icon">🎨</div>
-                    <h3>Coming Soon!</h3>
-                    <p>Coming Soon!</p>
-                </div>
+      <section id="about">
+        <h2 class="section-title">What I Do</h2>
+        <div class="features-grid">
+          <article class="feature-card glass">
+            <div class="feature-icon">🎮</div>
+            <div>
+              <h3>Minecraft Modding</h3>
+              <p>Creating immersive mod experiences with MCA Remastered, focusing on village interaction and storytelling.</p>
             </div>
-        </div>
-    </section>
+          </article>
 
-    <footer id="contact">
-        <div class="container">
-            <p>This site is made with Github Pages.</p>
-            <p>Licensed under Apache 2.0.</p>
+          <article class="feature-card glass">
+            <div class="feature-icon">🎨</div>
+            <div>
+              <h3>Web Design</h3>
+              <p>Crafting modern, visually cohesive websites using liquid glass and contemporary design principles.</p>
+            </div>
+          </article>
+
+          <article class="feature-card glass">
+            <div class="feature-icon">✨</div>
+            <div>
+              <h3>Creative Projects</h3>
+              <p>Experimenting with new ideas and building interactive prototypes that push creative boundaries.</p>
+            </div>
+          </article>
         </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>This site is made with GitHub Pages.</p>
+      <p>Licensed under Apache 2.0.</p>
     </footer>
+  </div>
 </body>
 </html>
