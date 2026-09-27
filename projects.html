@@ -19,8 +19,10 @@
       --shadow: rgba(0, 0, 0, 0.28);
       --success: #7ef0a5;
       --danger: #ff6b6b;
+      --warning: #facc15;
       --danger-soft: rgba(255, 107, 107, 0.12);
       --success-soft: rgba(194, 255, 216, 0.12);
+      --warning-soft: rgba(250, 204, 21, 0.14);
     }
 
     * { box-sizing: border-box; }
@@ -277,6 +279,17 @@
       box-shadow: 0 0 12px rgba(255, 107, 107, 0.8);
     }
 
+    .status.upcoming {
+      background: var(--warning-soft);
+      color: #fff4bf;
+      border: 1px solid rgba(250, 204, 21, 0.3);
+    }
+
+    .status.upcoming::before {
+      background: var(--warning);
+      box-shadow: 0 0 12px rgba(250, 204, 21, 0.8);
+    }
+
     .project-card h2 {
       margin: 18px 0 10px;
       font-size: 1.6rem;
@@ -407,7 +420,7 @@
         <article class="project-card glass">
           <div class="project-meta">
             <span class="tag">Creative</span>
-            <span class="status">Coming Soon</span>
+            <span class="status upcoming">Coming Soon</span>
           </div>
           <div>
             <h2>Next Experiments</h2>
