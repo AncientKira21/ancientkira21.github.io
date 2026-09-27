@@ -17,6 +17,10 @@
       --secondary: #e0c3fc;
       --accent: #c2ffd8;
       --shadow: rgba(0, 0, 0, 0.28);
+      --success: #7ef0a5;
+      --danger: #ff6b6b;
+      --danger-soft: rgba(255, 107, 107, 0.12);
+      --success-soft: rgba(194, 255, 216, 0.12);
     }
 
     * { box-sizing: border-box; }
@@ -248,7 +252,7 @@
       font-size: 0.72rem;
       padding: 7px 10px;
       border-radius: 999px;
-      background: rgba(194, 255, 216, 0.12);
+      background: var(--success-soft);
       color: #d8ffe7;
       border: 1px solid rgba(194,255,216,0.25);
     }
@@ -258,8 +262,19 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #7ef0a5;
+      background: var(--success);
       box-shadow: 0 0 12px rgba(126, 240, 165, 0.8);
+    }
+
+    .status.abandoned {
+      background: var(--danger-soft);
+      color: #ffd5d5;
+      border: 1px solid rgba(255, 107, 107, 0.28);
+    }
+
+    .status.abandoned::before {
+      background: var(--danger);
+      box-shadow: 0 0 12px rgba(255, 107, 107, 0.8);
     }
 
     .project-card h2 {
@@ -284,6 +299,8 @@
       margin-top: 22px;
       position: relative;
       z-index: 1;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .project-link {
@@ -372,12 +389,12 @@
         <article class="project-card glass">
           <div class="project-meta">
             <span class="tag">Android</span>
-            <span class="status">Abandoned</span>
+            <span class="status abandoned">Abandoned</span>
           </div>
           <div>
             <h2>FlashPipe</h2>
             <p>
-              A project that helps flash Android devices with ease, but nfortunately I got too busy and did not look back again. :(
+              A project that helps flash Android devices with ease, but unfortunately I got too busy and did not look back again. :(
             </p>
           </div>
           <div class="project-footer">
