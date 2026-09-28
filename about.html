@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | AncientKira</title>
+  <title>About | AncientKira</title>
   <style>
     :root {
       --bg1: #0f1025;
@@ -17,16 +17,6 @@
       --secondary: #e0c3fc;
       --accent: #c2ffd8;
       --shadow: rgba(0, 0, 0, 0.28);
-      --green: #7ef0a5;
-      --red: #ff6b6b;
-      --yellow: #facc15;
-      --blue: #60a5fa;
-      --purple: #d8b4fe;
-      --green-soft: rgba(126, 240, 165, 0.12);
-      --red-soft: rgba(255, 107, 107, 0.12);
-      --yellow-soft: rgba(250, 204, 21, 0.14);
-      --blue-soft: rgba(96, 165, 250, 0.12);
-      --purple-soft: rgba(216, 180, 254, 0.12);
     }
 
     * { box-sizing: border-box; }
@@ -163,7 +153,7 @@
 
     .hero p {
       margin: 18px 0 0;
-      max-width: 650px;
+      max-width: 700px;
       color: var(--muted);
       font-size: 1.05rem;
       line-height: 1.7;
@@ -202,174 +192,105 @@
       color: var(--text);
     }
 
-    .projects-grid {
-      margin-top: 42px;
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      margin: 56px 0 24px;
+      color: white;
+      letter-spacing: -0.03em;
+    }
+
+    .story-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 22px;
     }
 
-    .project-card {
-      padding: 22px;
+    .card {
+      padding: 24px 22px;
       border-radius: 24px;
       position: relative;
       overflow: hidden;
-      min-height: 260px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      margin-top: 18px;
+    }
+
+    .feature-card {
+      padding: 22px;
+      border-radius: 24px;
+      min-height: 220px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .project-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.07), transparent 50%);
-      pointer-events: none;
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 42px rgba(31, 38, 135, 0.35);
     }
 
-    .project-meta {
+    .feature-icon {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+      font-size: 0.96rem;
+    }
+
+    .tag-list {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-wrap: wrap;
       gap: 12px;
-      position: relative;
-      z-index: 1;
+      margin-top: 18px;
     }
 
     .tag {
       display: inline-flex;
-      align-items: center;
-      padding: 7px 10px;
+      padding: 8px 12px;
       border-radius: 999px;
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.12);
-      color: var(--muted);
-      font-size: 0.75rem;
+      color: var(--text);
+      font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.72rem;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: var(--green-soft);
-      color: #d8ffe7;
-      border: 1px solid rgba(126, 240, 165, 0.25);
-      position: relative;
-      z-index: 1;
-    }
-
-    .status::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 12px rgba(126, 240, 165, 0.8);
-    }
-
-    /* Dynamic color variants */
-    .status[data-color="green"] {
-      background: var(--green-soft);
-      color: #d8ffe7;
-      border: 1px solid rgba(126, 240, 165, 0.25);
-    }
-
-    .status[data-color="green"]::before {
-      background: var(--green);
-      box-shadow: 0 0 12px rgba(126, 240, 165, 0.8);
-    }
-
-    .status[data-color="red"] {
-      background: var(--red-soft);
-      color: #ffd5d5;
-      border: 1px solid rgba(255, 107, 107, 0.28);
-    }
-
-    .status[data-color="red"]::before {
-      background: var(--red);
-      box-shadow: 0 0 12px rgba(255, 107, 107, 0.8);
-    }
-
-    .status[data-color="yellow"] {
-      background: var(--yellow-soft);
-      color: #fff4bf;
-      border: 1px solid rgba(250, 204, 21, 0.3);
-    }
-
-    .status[data-color="yellow"]::before {
-      background: var(--yellow);
-      box-shadow: 0 0 12px rgba(250, 204, 21, 0.8);
-    }
-
-    .status[data-color="blue"] {
-      background: var(--blue-soft);
-      color: #bfdbfe;
-      border: 1px solid rgba(96, 165, 250, 0.3);
-    }
-
-    .status[data-color="blue"]::before {
-      background: var(--blue);
-      box-shadow: 0 0 12px rgba(96, 165, 250, 0.8);
-    }
-
-    .status[data-color="purple"] {
-      background: var(--purple-soft);
-      color: #f3e8ff;
-      border: 1px solid rgba(216, 180, 254, 0.3);
-    }
-
-    .status[data-color="purple"]::before {
-      background: var(--purple);
-      box-shadow: 0 0 12px rgba(216, 180, 254, 0.8);
-    }
-
-    .project-card h2 {
-      margin: 18px 0 10px;
-      font-size: 1.6rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .project-card p {
-      position: relative;
-      z-index: 1;
+    footer {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
       color: var(--muted);
       line-height: 1.7;
-      margin: 0;
     }
 
-    .project-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 22px;
-      position: relative;
-      z-index: 1;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .project-link {
-      color: white;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .project-link:hover {
-      text-decoration: underline;
-    }
-
-    .mini {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.8rem;
-      font-weight: 600;
+    @media (max-width: 800px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 700px) {
@@ -400,81 +321,93 @@
       <div class="brand">AncientKira</div>
       <nav class="nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="Projects.html" class="active">Projects</a>
-        <a href="index.html#about">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html" class="active">About</a>
       </nav>
     </header>
 
     <main>
       <section class="hero glass">
-        <div class="kicker">Portfolio</div>
-        <h1>Projects built with passion.</h1>
+        <div class="kicker">About</div>
+        <h1>Creative, technical, and a little bit curious.</h1>
         <p>
-          A collection of passion-made projects I have ever made.
+          I’m AncientKira — a developer and creator exploring the space where design, storytelling,
+          and technical craft meet. I build things that feel intentional, expressive, and personal.
         </p>
         <div class="actions">
-          <a class="button primary" href="#projects">View Projects</a>
+          <a class="button primary" href="projects.html">Explore Projects</a>
           <a class="button secondary" href="index.html">Back Home</a>
         </div>
       </section>
 
-      <section id="projects" class="projects-grid" aria-label="Project list">
-        <article class="project-card glass">
-          <div class="project-meta">
-            <span class="tag">Minecraft</span>
-            <span class="status" data-color="green">Active</span>
-          </div>
-          <div>
-            <h2>MCA Remastered</h2>
+      <section>
+        <h2 class="section-title">Who I am</h2>
+        <div class="story-grid">
+          <article class="card glass">
             <p>
-              Built upon MCA Reborn, this project expands the experience with richer village communication,
-              immersive storytelling, and a playful set of in-world ideas and memes.
+              I enjoy building digital experiences with personality. Whether that means designing a polished landing page,
+              crafting a modded project, or experimenting with fresh creative ideas, I care about clarity, mood,
+              and quality in the final result.
             </p>
-          </div>
-          <div class="project-footer">
-            <span class="mini">Modding / Java</span>
-            <a href="https://www.curseforge.com/minecraft/mc-mods/minecraft-comes-alive-remastered" class="project-link">CurseForge</a>
-            <a href="https://github.com/AncientKira21/mcarem" class="project-link">GitHub</a>
-          </div>
-        </article>
+          </article>
 
-        <article class="project-card glass">
-          <div class="project-meta">
-            <span class="tag">Android</span>
-            <span class="status" data-color="red">Abandoned</span>
-          </div>
-          <div>
-            <h2>FlashPipe</h2>
+          <article class="card glass">
             <p>
-              A project that helps flash Android devices with ease, but unfortunately I got too busy and did not look back again. :(
+              My interests sit at the intersection of design, software building, and creative problem-solving.
+              I like projects that blend visual polish with real utility and a sense of story.
             </p>
-          </div>
-          <div class="project-footer">
-            <span class="mini">HTML / CSS</span>
-            <a href="https://xdaforums.com/t/delta-macos-flashpipe-native-swiftui-tool-for-adb-fastboot.4772841/" class="project-link">XDA</a>
-            <a href="https://github.com/AncientKira21/flashpipe" class="project-link">GitHub</a>
-          </div>
-        </article>
+          </article>
+        </div>
+      </section>
 
-        <article class="project-card glass">
-          <div class="project-meta">
-            <span class="tag">Creative</span>
-            <span class="status" data-color="yellow">Coming Soon</span>
-          </div>
-          <div>
-            <h2>Next Experiments</h2>
-            <p>
-              New creative explorations are being planned, including interactive ideas, visual prototypes,
-              and more personal projects shaped by experimentation and design.
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="mini">Research</span>
-            <a href="#" class="project-link">Soon</a>
-          </div>
-        </article>
+      <section>
+        <h2 class="section-title">What I like to build</h2>
+        <div class="features-grid">
+          <article class="feature-card glass">
+            <div>
+              <div class="feature-icon">🎮</div>
+              <h3>Minecraft Modding</h3>
+            </div>
+            <p>Creating immersive gameplay experiences that add personality, narrative, and a richer world.</p>
+          </article>
+
+          <article class="feature-card glass">
+            <div>
+              <div class="feature-icon">🎨</div>
+              <h3>Web Design</h3>
+            </div>
+            <p>Crafting modern interfaces with soft-glass visuals, clean hierarchy, and a strong visual identity.</p>
+          </article>
+
+          <article class="feature-card glass">
+            <div>
+              <div class="feature-icon">✨</div>
+              <h3>Creative Prototypes</h3>
+            </div>
+            <p>Experimenting with visual ideas and building small systems that turn inspiration into function.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Tools & interests</h2>
+        <div class="tag-list">
+          <span class="tag">Java</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">GitHub Pages</span>
+          <span class="tag">UI Design</span>
+          <span class="tag">Creative Tech</span>
+          <span class="tag">Worldbuilding</span>
+          <span class="tag">Storytelling</span>
+        </div>
       </section>
     </main>
+
+    <footer>
+      <p>This site is made with GitHub Pages.</p>
+      <p>Licensed under Apache 2.0.</p>
+    </footer>
   </div>
 </body>
 </html>
