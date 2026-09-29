@@ -3,37 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | AncientKira</title>
+  <title>AncientKira | Home</title>
   <style>
     :root {
       --bg1: #0f1025;
       --bg2: #1d1f3a;
-      --glass: rgba(255, 255, 255, 0.08);
-      --glass-strong: rgba(255, 255, 255, 0.14);
       --stroke: rgba(255, 255, 255, 0.18);
       --text: #f5f7ff;
       --muted: rgba(255, 255, 255, 0.75);
-      --primary: #8ec5fc;
-      --secondary: #e0c3fc;
-      --accent: #c2ffd8;
-      --shadow: rgba(0, 0, 0, 0.28);
-      --green: #7ef0a5;
-      --red: #ff6b6b;
-      --yellow: #facc15;
-      --blue: #60a5fa;
-      --purple: #d8b4fe;
-      --green-soft: rgba(126, 240, 165, 0.12);
-      --red-soft: rgba(255, 107, 107, 0.12);
-      --yellow-soft: rgba(250, 204, 21, 0.14);
-      --blue-soft: rgba(96, 165, 250, 0.12);
-      --purple-soft: rgba(216, 180, 254, 0.12);
     }
 
     * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -55,10 +37,7 @@
       pointer-events: none;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .glass {
       background: rgba(255, 255, 255, 0.09);
@@ -202,174 +181,61 @@
       color: var(--text);
     }
 
-    .projects-grid {
-      margin-top: 42px;
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      margin: 60px 0 40px;
+      color: white;
+      text-align: center;
+      letter-spacing: -0.03em;
+    }
+
+    .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 22px;
     }
 
-    .project-card {
+    .feature-card {
       padding: 22px;
       border-radius: 24px;
       position: relative;
       overflow: hidden;
-      min-height: 260px;
+      min-height: 220px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .project-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.07), transparent 50%);
-      pointer-events: none;
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 42px rgba(31, 38, 135, 0.35);
     }
 
-    .project-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      position: relative;
-      z-index: 1;
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
     }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--muted);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    .feature-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.4rem;
     }
 
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.72rem;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: var(--green-soft);
-      color: #d8ffe7;
-      border: 1px solid rgba(126, 240, 165, 0.25);
-      position: relative;
-      z-index: 1;
-    }
-
-    .status::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 12px rgba(126, 240, 165, 0.8);
-    }
-
-    /* Dynamic color variants */
-    .status[data-color="green"] {
-      background: var(--green-soft);
-      color: #d8ffe7;
-      border: 1px solid rgba(126, 240, 165, 0.25);
-    }
-
-    .status[data-color="green"]::before {
-      background: var(--green);
-      box-shadow: 0 0 12px rgba(126, 240, 165, 0.8);
-    }
-
-    .status[data-color="red"] {
-      background: var(--red-soft);
-      color: #ffd5d5;
-      border: 1px solid rgba(255, 107, 107, 0.28);
-    }
-
-    .status[data-color="red"]::before {
-      background: var(--red);
-      box-shadow: 0 0 12px rgba(255, 107, 107, 0.8);
-    }
-
-    .status[data-color="yellow"] {
-      background: var(--yellow-soft);
-      color: #fff4bf;
-      border: 1px solid rgba(250, 204, 21, 0.3);
-    }
-
-    .status[data-color="yellow"]::before {
-      background: var(--yellow);
-      box-shadow: 0 0 12px rgba(250, 204, 21, 0.8);
-    }
-
-    .status[data-color="blue"] {
-      background: var(--blue-soft);
-      color: #bfdbfe;
-      border: 1px solid rgba(96, 165, 250, 0.3);
-    }
-
-    .status[data-color="blue"]::before {
-      background: var(--blue);
-      box-shadow: 0 0 12px rgba(96, 165, 250, 0.8);
-    }
-
-    .status[data-color="purple"] {
-      background: var(--purple-soft);
-      color: #f3e8ff;
-      border: 1px solid rgba(216, 180, 254, 0.3);
-    }
-
-    .status[data-color="purple"]::before {
-      background: var(--purple);
-      box-shadow: 0 0 12px rgba(216, 180, 254, 0.8);
-    }
-
-    .project-card h2 {
-      margin: 18px 0 10px;
-      font-size: 1.6rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .project-card p {
-      position: relative;
-      z-index: 1;
+    .feature-card p {
       color: var(--muted);
       line-height: 1.7;
       margin: 0;
+      font-size: 0.95rem;
     }
 
-    .project-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 22px;
-      position: relative;
-      z-index: 1;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .project-link {
-      color: white;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .project-link:hover {
-      text-decoration: underline;
-    }
-
-    .mini {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.8rem;
-      font-weight: 600;
+    footer {
+      margin-top: 60px;
+      padding: 28px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     @media (max-width: 700px) {
@@ -379,18 +245,9 @@
         align-items: flex-start;
       }
 
-      .nav {
-        width: 100%;
-      }
-
-      .nav a {
-        flex: 1 1 auto;
-        text-align: center;
-      }
-
-      .hero {
-        padding: 32px 20px;
-      }
+      .nav { width: 100%; }
+      .nav a { flex: 1 1 auto; text-align: center; }
+      .hero { padding: 32px 20px; }
     }
   </style>
 </head>
@@ -399,82 +256,60 @@
     <header class="topbar glass">
       <div class="brand">AncientKira</div>
       <nav class="nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="Projects.html" class="active">Projects</a>
-        <a href="index.html#about">About</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="#about">About</a>
       </nav>
     </header>
 
     <main>
       <section class="hero glass">
-        <div class="kicker">Portfolio</div>
-        <h1>Projects built with passion.</h1>
+        <div class="kicker">Welcome</div>
+        <h1>Creative exploration through code and design.</h1>
         <p>
-          A collection of passion-made projects I have ever made.
+          I'm AncientKira, exploring the intersection of creativity, technical craft, and digital design.
+          Building projects that blend storytelling with technical innovation.
         </p>
         <div class="actions">
-          <a class="button primary" href="#projects">View Projects</a>
-          <a class="button secondary" href="index.html">Back Home</a>
+          <a class="button primary" href="projects.html">View Projects</a>
+          <a class="button secondary" href="#about">Learn More</a>
         </div>
       </section>
 
-      <section id="projects" class="projects-grid" aria-label="Project list">
-        <article class="project-card glass">
-          <div class="project-meta">
-            <span class="tag">Minecraft</span>
-            <span class="status" data-color="green">Active</span>
-          </div>
-          <div>
-            <h2>MCA Remastered</h2>
-            <p>
-              Built upon MCA Reborn, this project expands the experience with richer village communication,
-              immersive storytelling, and a playful set of in-world ideas and memes.
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="mini">Modding / Java</span>
-            <a href="https://www.curseforge.com/minecraft/mc-mods/minecraft-comes-alive-remastered" class="project-link">CurseForge</a>
-            <a href="https://github.com/AncientKira21/mcarem" class="project-link">GitHub</a>
-          </div>
-        </article>
+      <section id="about">
+        <h2 class="section-title">What I Do</h2>
+        <div class="features-grid">
+          <article class="feature-card glass">
+            <div class="feature-icon">🎮</div>
+            <div>
+              <h3>Minecraft Modding</h3>
+              <p>Creating immersive mod experiences with MCA Remastered, focusing on village interaction and storytelling.</p>
+            </div>
+          </article>
 
-        <article class="project-card glass">
-          <div class="project-meta">
-            <span class="tag">Android</span>
-            <span class="status" data-color="red">Abandoned</span>
-          </div>
-          <div>
-            <h2>FlashPipe</h2>
-            <p>
-              A project that helps flash Android devices with ease, but unfortunately I got too busy and did not look back again. :(
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="mini">HTML / CSS</span>
-            <a href="https://xdaforums.com/t/delta-macos-flashpipe-native-swiftui-tool-for-adb-fastboot.4772841/" class="project-link">XDA</a>
-            <a href="https://github.com/AncientKira21/flashpipe" class="project-link">GitHub</a>
-          </div>
-        </article>
+          <article class="feature-card glass">
+            <div class="feature-icon">🎨</div>
+            <div>
+              <h3>Web Design</h3>
+              <p>Crafting modern, visually cohesive websites using liquid glass and contemporary design principles.</p>
+            </div>
+          </article>
 
-        <article class="project-card glass">
-          <div class="project-meta">
-            <span class="tag">Creative</span>
-            <span class="status" data-color="yellow">Coming Soon</span>
-          </div>
-          <div>
-            <h2>Next Experiments</h2>
-            <p>
-              New creative explorations are being planned, including interactive ideas, visual prototypes,
-              and more personal projects shaped by experimentation and design.
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="mini">Research</span>
-            <a href="#" class="project-link">Soon</a>
-          </div>
-        </article>
+          <article class="feature-card glass">
+            <div class="feature-icon">✨</div>
+            <div>
+              <h3>Creative Projects</h3>
+              <p>Experimenting with new ideas and building interactive prototypes that push creative boundaries.</p>
+            </div>
+          </article>
+        </div>
       </section>
     </main>
+
+    <footer>
+      <p>This site is made with GitHub Pages.</p>
+      <p>Licensed under Apache 2.0.</p>
+    </footer>
   </div>
 </body>
 </html>
