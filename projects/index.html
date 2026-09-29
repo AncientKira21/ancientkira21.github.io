@@ -218,6 +218,12 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 42px rgba(31, 38, 135, 0.35);
     }
 
     .project-card::before {
@@ -432,8 +438,10 @@
           </div>
           <div class="project-footer">
             <span class="mini">Modding / Java</span>
-            <a href="https://www.curseforge.com/minecraft/mc-mods/minecraft-comes-alive-remastered" class="project-link">CurseForge</a>
-            <a href="https://github.com/AncientKira21/mcarem" class="project-link">GitHub</a>
+            <span style="display: flex; gap: 12px;">
+              <a href="https://www.curseforge.com/minecraft/mc-mods/minecraft-comes-alive-remastered" class="project-link">CurseForge</a>
+              <a href="https://github.com/AncientKira21/mcarem" class="project-link">GitHub</a>
+            </span>
           </div>
         </article>
 
@@ -450,8 +458,10 @@
           </div>
           <div class="project-footer">
             <span class="mini">HTML / CSS</span>
-            <a href="https://xdaforums.com/t/delta-macos-flashpipe-native-swiftui-tool-for-adb-fastboot.4772841/" class="project-link">XDA</a>
-            <a href="https://github.com/AncientKira21/flashpipe" class="project-link">GitHub</a>
+            <span style="display: flex; gap: 12px;">
+              <a href="https://xdaforums.com/t/delta-macos-flashpipe-native-swiftui-tool-for-adb-fastboot.4772841/" class="project-link">XDA</a>
+              <a href="https://github.com/AncientKira21/flashpipe" class="project-link">GitHub</a>
+            </span>
           </div>
         </article>
 
