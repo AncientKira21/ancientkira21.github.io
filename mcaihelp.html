@@ -112,7 +112,7 @@
     .content-card strong { color: white; }
     .content-card img { max-width: 100%; border-radius: 12px; margin: 16px 0; }
     .content-card code { background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 6px; font-family: monospace; color: #f5f7ff; }
-    .content-card pre { background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; overflow-x: auto; border: 1px solid var(--stroke); }
+    .content-card pre { background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; overflow-x: auto; border: 1px solid var(--stroke); margin: 16px 0; }
     .content-card pre code { background: none; padding: 0; }
     .content-card del { color: rgba(255, 255, 255, 0.45); text-decoration: line-through; }
     .content-card ul { margin: 12px 0; padding-left: 24px; }
@@ -152,16 +152,35 @@
   </div>
 
   <script>
-    // Bullet-proof markdown parser with robust list formatting
+    // Clean, stable parser that handles blockquotes, code blocks, lists, and headings properly
     function simpleMarkdown(text) {
       let lines = text.split('\n');
       let html = [];
       let inList = false;
+      let inCodeBlock = false;
 
       for (let i = 0; i < lines.length; i++) {
         let line = lines[i];
 
-        // Check for bullet points starting with *
+        // Handle Code Blocks
+        if (line.startsWith('```')) {
+          if (inCodeBlock) {
+            html.push('</code></pre>');
+            inCodeBlock = false;
+          } else {
+            if (inList) { html.push('</ul>'); inList = false; }
+            html.push('<pre><code>');
+            inCodeBlock = true;
+          }
+          continue;
+        }
+
+        if (inCodeBlock) {
+          html.push(line.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+          continue;
+        }
+
+        // Handle Bullet Points
         if (line.trim().startsWith('* ')) {
           if (!inList) {
             html.push('<ul>');
@@ -169,17 +188,20 @@
           }
           let content = line.trim().substring(2);
           html.push(`<li>${formatInline(content)}</li>`);
+          continue;
         } else {
           if (inList) {
             html.push('</ul>');
             inList = false;
           }
-          html.push(formatLine(line));
         }
+
+        // Handle Headings and Normal Lines
+        html.push(formatLine(line));
       }
-      if (inList) {
-        html.push('</ul>');
-      }
+
+      if (inList) html.push('</ul>');
+      if (inCodeBlock) html.push('</code></pre>');
 
       return html.join('<br>');
     }
@@ -205,9 +227,6 @@
       if (line.startsWith('### ')) {
         let title = line.substring(4);
         return `<h3 id="${title.toLowerCase().replace(/[^\w]+/g, '-')}">${title}</h3>`;
-      }
-      if (line.startsWith('```')) {
-        return '<pre><code>';
       }
       return formatInline(line);
     }
