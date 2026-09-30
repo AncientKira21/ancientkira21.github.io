@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ancient Kira | Projects</title>
+  <style>
+    :root {
+      --bg1: #0f1025;
+      --bg2: #1d1f3a;
+      --stroke: rgba(255, 255, 255, 0.18);
+      --text: #f5f7ff;
+      --muted: rgba(255, 255, 255, 0.75);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      background-color: #0f1025;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(142, 197, 252, 0.26), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(224, 195, 252, 0.22), transparent 35%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01), rgba(255,255,255,0.05));
+      pointer-events: none;
+    }
+
+    a { color: #8ec5fc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .page-shell {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin-top: 20px;
+      border-radius: 22px;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: white;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover {
+      background: rgba(255,255,255,0.08);
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav a.active {
+      background: linear-gradient(135deg, rgba(142,197,252,0.18), rgba(224,195,252,0.18));
+      color: white;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .content-card {
+      margin-top: 42px;
+      padding: 40px;
+      border-radius: 30px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .content-card h1, .content-card h2, .content-card h3 { color: white; margin-top: 32px; scroll-margin-top: 100px; }
+    .content-card strong { color: white; }
+    .content-card img { max-width: 100%; border-radius: 12px; margin: 16px 0; }
+    .content-card code { background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 6px; font-family: monospace; color: #f5f7ff; }
+    .content-card pre { background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; overflow-x: auto; border: 1px solid var(--stroke); }
+    .content-card pre code { background: none; padding: 0; }
+
+    footer {
+      margin-top: 60px;
+      padding: 28px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar glass">
+      <div class="brand">Ancient Kira</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/projects/" class="active">Projects</a>
+        <a href="/about/">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- The content renders instantly right here -->
+      <article class="content-card glass" id="replaceable-text">
+        Loading...
+      </article>
+    </main>
+
+    <footer>
+      <p>This site is made with GitHub Pages.</p>
+      <p>Licensed under Apache 2.0.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Enhanced markdown parser that converts headings into anchor IDs (e.g., #extender or #Increase-Conversation-Limit)
+    function simpleMarkdown(text) {
+      return text
+        .replace(/^# (.*$)/gm, (_, title) => `<h1 id="${title.toLowerCase().replace(/[^\w]+/g, '-')}">${title}</h1>`)
+        .replace(/^## (.*$)/gm, (_, title) => `<h2 id="${title.toLowerCase().replace(/[^\w]+/g, '-')}">${title}</h2>`)
+        .replace(/^### (.*$)/gm, (_, title) => `<h3 id="${title.toLowerCase().replace(/[^\w]+/g, '-')}">${title}</h3>`)
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/```json([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
+        .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
+        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
+        .replace(/\n/g, '<br>');
+    }
+
+    // ==========================================
+    // 📝 EASY-TO-REPLACE TEXT VARIABLE:
+    // Change this text anytime. Headings automatically 
+    // generate anchor IDs (e.g. #increase-conversation-limit)!
+    // ==========================================
+    const myProjectText = `# Enable
+Make sure to have MCArem 8.1.11+ installed!
+
+One funny and useful feature of MCArem is the AI-based conversation. For privacy reasons, it is disabled by default. Enable it in the server config:
+\`\`\`json
+"enableVillagerChatAI": true,
+\`\`\`
+Or via command in the [command section](https://github.com/AncientKira21/mcarem/wiki/GPT3%E2%80%90based%E2%80%90conversations#commands-and-models).
+
+Then, the AI waits until the player starts a conversation by saying the name of the villager out loud. E.g.
+\`\`\`
+Hi Ismahan, how are you?
+\`\`\`
+You do not need to care about lower/upper cases nor accents.
+
+Once a conversation is started, you can talk without mentioning the name.
+
+The AI is limited in terms of memory and environment. They know their personality, the players’ achievement and their approximate surroundings, but that's about it. Asking about how they like your house, for example, will result in fancy, but completely guessed responses. Same with memory, they only remember the last few a dozen sentences of your conversation.
+
+To stop a conversation, leave.
+
+**Do not share sensitive information and keep in mind that everything you say may be used for evaluation or training.**
+
+# Increase Conversation Limit
+"The AI is expensive and therefore rate-limited. Your quota is reset once an hour and is enough for chitchatting or a dialogue once in a while.
+You can extend that limit:"
+* ~~Head over to [https://www.patreon.cοm/cοnczin/membership](https://ancientkira21.github.io/) and select the \`Fund the AI\` pledge.~~ Our motto is *Less ads and payments, more fun*, so donation is optional for people who want to support. We do not give premium access tiers to keep things fun and fair.
+
+In conclusion, there is no way to extend that limit.
+
+# Commands and Models
+You can use the \`/mca chatAI default\` command to turn on the AI and toggle between models using \`/mca chatAI <model>\`.
+Models have different characteristics, intelligence and price.
+I recommend sticking to the default from one of the providers here:
+* \`default\` - An alias for the recommended model.
+* \`mistral\` - The recommended model provided by Mistral.AI
+* \`openai\` - The recommended model provided by OpenAI
+* \`groq\` - The recommended model provided by Groq
+* \`horde\` - A random >7B model from the [AI Horde](https://aihorde.net/). Crowdsourced!
+* \`player2\` - Use [Player2](https://player2.game/)'s backend.
+
+# Long-term Memory
+
+The default server comes with a experimental Long-term memory (8.1.11+), it is disabled by default. Turn it on in the config via \`villagerChatAIUseLongTermMemory\`, and optionally server-wide as well with \`villagerChatAIUseSharedLongTermMemory\`.
+A compressed version of your dialogues is stored on the server!
+
+# TTS
+
+[Check this!](https://github.com/Luke100000/minecraft-comes-alive/wiki/TTS)
+
+# Custom Endpoints
+Advanced usage!
+You can also provide your own endpoint and, when required, access token. For example (quote the URL!)
+
+* \`/mca chatAI gpt-3.5-turbo "https://api.openai.com/v1/chat/completions" "secret_key"\`
+* \`/mca chatAI mistral-small "https://api.mistral.ai/v1/chat/completions" "secret_key"\`
+
+The token is sent to and stored on the server, do not execute that on untrusted servers!
+
+You may want to provide an additional, custom system prompt in the config \`villagerChatAISystemPrompt\`.`;
+
+    // Automatically parses markdown, creates heading IDs, and renders instantly!
+    document.getElementById('replaceable-text').innerHTML = simpleMarkdown(myProjectText);
+  </script>
+</body>
+</html>
