@@ -114,7 +114,7 @@
     .content-card code { background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 6px; font-family: monospace; color: #f5f7ff; }
     .content-card pre { background: rgba(0,0,0,0.4); padding: 16px; border-radius: 12px; overflow-x: auto; border: 1px solid var(--stroke); }
     .content-card pre code { background: none; padding: 0; }
-    .content-card del { color: rgba(255, 255, 255, 0.45); }
+    .content-card del { color: rgba(255, 255, 255, 0.45); text-decoration: line-through; }
 
     footer {
       margin-top: 60px;
@@ -128,6 +128,7 @@
 </head>
 <body>
   <div class="page-shell">
+    <!-- Topbar completely unhighlighted with no .active class -->
     <header class="topbar glass">
       <div class="brand">Ancient Kira</div>
       <nav class="nav" aria-label="Main navigation">
@@ -138,7 +139,6 @@
     </header>
 
     <main>
-      <!-- The content renders instantly right here -->
       <article class="content-card glass" id="replaceable-text">
         Loading...
       </article>
@@ -151,13 +151,13 @@
   </div>
 
   <script>
-    // Markdown parser with strikethrough, anchor IDs, code blocks, and links
+    // Strikethrough rule placed FIRST so single asterisks don't break it
     function simpleMarkdown(text) {
       return text
+        .replace(/~~(.*?)~~/g, '<del>$1</del>')
         .replace(/^# (.*$)/gm, (_, title) => `<h1 id="${title.toLowerCase().replace(/[^\w]+/g, '-')}">${title}</h1>`)
         .replace(/^## (.*$)/gm, (_, title) => `<h2 id="${title.toLowerCase().replace(/[^\w]+/g, '-')}">${title}</h2>`)
         .replace(/^### (.*$)/gm, (_, title) => `<h3 id="${title.toLowerCase().replace(/[^\w]+/g, '-')}">${title}</h3>`)
-        .replace(/~~(.*?)~~/g, '<del>$1</del>')
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
         .replace(/\*(.*?)\*/g, '<em>$1</em>')
         .replace(/```json([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
@@ -166,11 +166,6 @@
         .replace(/\n/g, '<br>');
     }
 
-    // ==========================================
-    // 📝 EASY-TO-REPLACE TEXT VARIABLE:
-    // Change this text anytime. Headings automatically 
-    // generate anchor IDs (e.g. #increase-conversation-limit)!
-    // ==========================================
     const myProjectText = `# Enable
 Make sure to have MCArem 8.1.11+ installed!
 
@@ -232,7 +227,6 @@ The token is sent to and stored on the server, do not execute that on untrusted 
 
 You may want to provide an additional, custom system prompt in the config \`villagerChatAISystemPrompt\`.`;
 
-    // Automatically parses markdown, creates heading IDs, and renders instantly!
     document.getElementById('replaceable-text').innerHTML = simpleMarkdown(myProjectText);
   </script>
 </body>
