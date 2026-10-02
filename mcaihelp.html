@@ -152,7 +152,6 @@
   </div>
 
   <script>
-    // Clean, stable parser that handles blockquotes, code blocks, lists, and headings properly
     function simpleMarkdown(text) {
       let lines = text.split('\n');
       let html = [];
@@ -162,7 +161,6 @@
       for (let i = 0; i < lines.length; i++) {
         let line = lines[i];
 
-        // Handle Code Blocks
         if (line.startsWith('```')) {
           if (inCodeBlock) {
             html.push('</code></pre>');
@@ -180,7 +178,6 @@
           continue;
         }
 
-        // Handle Bullet Points
         if (line.trim().startsWith('* ')) {
           if (!inList) {
             html.push('<ul>');
@@ -196,7 +193,6 @@
           }
         }
 
-        // Handle Headings and Normal Lines
         html.push(formatLine(line));
       }
 
@@ -257,7 +253,7 @@ To stop a conversation, leave.
 # Increase Conversation Limit
 "The AI is expensive and therefore rate-limited. Your quota is reset once an hour and is enough for chitchatting or a dialogue once in a while.
 You can extend that limit:"
-* ~~Head over to Conczin's donation page and select the `Fund the AI` pledge.~~ Our motto is *Less ads and payments, more fun*, so donation is optional for people who want to support. We do not give premium access tiers to keep things fun and fair.
+* ~~Head over to Conczin's donation page and select the \`Fund the AI\` pledge.~~ Our motto is *Less ads and payments, more fun*, so donation is optional for people who want to support. We do not give premium access tiers to keep things fun and fair.
 * If you try using the old method where you support MCAR's devs just to get a premium tier, it WILL NOT WORK. Just delete the mod and use MCAR instead if you love those devs too much. MCArem and MCAR are like Apple and Samsung, they share displays, but they're rivals, but instead of displays, they share the AI and library.
 
 In conclusion, there is no way to extend that limit.
