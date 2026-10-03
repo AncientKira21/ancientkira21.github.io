@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ancient Kira | Documentation</title>
+  <title>Lucily | Documentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg1: #0f1025;
@@ -72,20 +73,34 @@
       gap: 20px;
     }
 
+    .brand-container {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
     .brand {
       font-family: 'Luxurious Script', cursive;
-      font-size: 1.8rem;
+      font-size: 2.4rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       color: white;
     }
 
+    .brand:hover {
+      text-decoration: none;
+    }
+
     .subtext {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 400;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       color: rgba(255, 255, 255, 0.7);
-      margin-top: 4px;
+    }
+
+    .subtext:hover {
+      text-decoration: none;
+      color: white;
     }
 
     .nav {
@@ -135,13 +150,26 @@
       color: var(--muted);
       line-height: 1.7;
     }
+
+    @media (max-width: 700px) {
+      .topbar {
+        padding: 16px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav { width: 100%; }
+      .nav a { flex: 1 1 auto; text-align: center; }
+    }
   </style>
 </head>
 <body>
   <div class="page-shell">
     <header class="topbar glass">
-      <div class="brand">Lucily</div>
-      <div class="subtext">by Ancient Kira</span>
+      <div class="brand-container">
+        <a href="/" class="brand">Lucily</a>
+        <a href="/about/" class="subtext">by Ancient Kira</a>
+      </div>
       <nav class="nav" aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/projects/">Projects</a>
