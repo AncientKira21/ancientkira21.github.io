@@ -234,20 +234,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .project-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 14px 42px rgba(31, 38, 135, 0.35);
-    }
-
-    .project-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.07), transparent 50%);
-      pointer-events: none;
+      background: rgba(255, 255, 255, 0.13);
     }
 
     .project-meta {
@@ -255,8 +248,6 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      position: relative;
-      z-index: 1;
     }
 
     .tag {
@@ -283,8 +274,6 @@
       background: var(--green-soft);
       color: #d8ffe7;
       border: 1px solid rgba(126, 240, 165, 0.25);
-      position: relative;
-      z-index: 1;
     }
 
     .status::before {
@@ -332,13 +321,9 @@
     .project-card h2 {
       margin: 18px 0 10px;
       font-size: 1.6rem;
-      position: relative;
-      z-index: 1;
     }
 
     .project-card p {
-      position: relative;
-      z-index: 1;
       color: var(--muted);
       line-height: 1.7;
       margin: 0;
@@ -349,8 +334,6 @@
       justify-content: space-between;
       align-items: center;
       margin-top: 22px;
-      position: relative;
-      z-index: 1;
       gap: 10px;
       flex-wrap: wrap;
     }
@@ -430,13 +413,12 @@
 
       <section id="projects" class="projects-grid" aria-label="Project list">
         <article class="project-card glass">
-          <a href="https://github.com/AncientKira21/mcarem/releases" style="position: absolute; inset: 0; z-index: 2;" aria-label="View MCA Remastered"></a>
           <div class="project-meta">
             <span class="tag">Minecraft</span>
             <span class="status" data-color="green">Active, Weekly</span>
           </div>
           <div>
-            <h2><a href="/projects/mcarem/" class="project-link">MCA Remastered</a></h2>
+            <h2><a href="https://github.com/AncientKira21/mcarem/releases" class="project-link" target="_blank" rel="noopener">MCA Remastered</a></h2>
             <p>
               Built upon MCA Reborn, this project expands the experience with richer village communication,
               immersive storytelling, and a playful set of in-world ideas and memes. Just updated with the fresh new 8.1.13.
@@ -444,7 +426,7 @@
           </div>
           <div class="project-footer">
             <span class="mini">Modding / Java</span>
-            <span style="display: flex; gap: 12px; position: relative; z-index: 3;">
+            <span style="display: flex; gap: 12px;">
               <a href="https://www.curseforge.com/minecraft/mc-mods/minecraft-comes-alive-remastered" class="project-link" target="_blank" rel="noopener">CurseForge</a>
               <a href="https://github.com/AncientKira21/mcarem" class="project-link" target="_blank" rel="noopener">GitHub</a>
             </span>
@@ -452,20 +434,19 @@
         </article>
 
         <article class="project-card glass">
-          <a href="https://github.com/AncientKira21/flashpipe/releases" style="position: absolute; inset: 0; z-index: 2;" aria-label="View FlashPipe"></a>
           <div class="project-meta">
             <span class="tag">Android</span>
             <span class="status" data-color="red">Abandoned</span>
           </div>
           <div>
-            <h2>FlashPipe</h2>
+            <h2><a href="https://github.com/AncientKira21/flashpipe/releases" class="project-link" target="_blank" rel="noopener">FlashPipe</a></h2>
             <p>
               A project that helps flash Android devices with ease, but unfortunately I got too busy and did not look back again. :(
             </p>
           </div>
           <div class="project-footer">
             <span class="mini">HTML / CSS</span>
-            <span style="display: flex; gap: 12px; position: relative; z-index: 3;">
+            <span style="display: flex; gap: 12px;">
               <a href="https://xdaforums.com/t/delta-macos-flashpipe-native-swiftui-tool-for-adb-fastboot.4772841/" class="project-link" target="_blank" rel="noopener">XDA</a>
               <a href="https://github.com/AncientKira21/flashpipe" class="project-link" target="_blank" rel="noopener">GitHub</a>
             </span>
@@ -473,21 +454,22 @@
         </article>
 
         <article class="project-card glass">
-          <a href="https://www.youtube.com/@AncientKira" style="position: absolute; inset: 0; z-index: 2;" aria-label="View Channel"></a>
           <div class="project-meta">
             <span class="tag">YouTube</span>
             <span class="status" data-color="red">Forgot to update</span>
           </div>
           <div>
-            <h2>YouTube Channel</h2>
+            <h2><a href="https://www.youtube.com/@AncientKira" class="project-link" target="_blank" rel="noopener">YouTube Channel</a></h2>
             <p>
-              A YouTube chaneel featuring iOS and macOS evolution and stuff. We did not have enough time to update this.
+              A YouTube channel featuring iOS and macOS evolution and stuff. We did not have enough time to update this.
             </p>
           </div>
           <div class="project-footer">
             <span class="mini">Entertainment / Video</span>
-            <a href="https://www.youtube.com/@AncientKira" class="project-link">Ancient Kira</a>
-            <a href="https://www.youtube.com/@KiraExplores" class="project-link">Kira Tech Foundry</a>
+            <span style="display: flex; gap: 12px;">
+              <a href="https://www.youtube.com/@AncientKira" class="project-link" target="_blank" rel="noopener">Ancient Kira</a>
+              <a href="https://www.youtube.com/@KiraExplores" class="project-link" target="_blank" rel="noopener">KTF</a>
+            </span>
           </div>
         </article>
       </section>
