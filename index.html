@@ -18,10 +18,7 @@
 
     html {
       scroll-behavior: smooth;
-      background:
-        radial-gradient(circle at top left, rgba(142, 197, 252, 0.26), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(224, 195, 252, 0.22), transparent 35%),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
       margin: 0;
     }
@@ -39,7 +36,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01), rgba(255,255,255,0.05));
       pointer-events: none;
     }
 
@@ -86,11 +83,20 @@
       color: white;
     }
 
+    .brand:hover {
+      text-decoration: none;
+    }
+
     .subtext {
       font-size: 0.9rem;
       font-weight: 400;
       letter-spacing: 0.06em;
       color: rgba(255, 255, 255, 0.7);
+    }
+
+    .subtext:hover {
+      text-decoration: none;
+      color: white;
     }
 
     .nav {
@@ -316,7 +322,7 @@
             <div class="feature-icon">✨</div>
             <div>
               <h3>Ad-free work</h3>
-              <p>Less ads, more fun! We never slap ads or paid VIP features.</p>
+              <p>Less ads and payments, more fun! We never slap ads or paid VIP features.</p>
             </div>
           </article>
         </div>
