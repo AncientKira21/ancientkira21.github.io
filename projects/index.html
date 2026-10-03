@@ -3,20 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Ancient Kira</title>
+  <title>Projects | Lucily</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg1: #0f1025;
-      --bg2: #1d1f3a;
-      --glass: rgba(255, 255, 255, 0.08);
-      --glass-strong: rgba(255, 255, 255, 0.14);
       --stroke: rgba(255, 255, 255, 0.18);
       --text: #f5f7ff;
       --muted: rgba(255, 255, 255, 0.75);
-      --primary: #8ec5fc;
-      --secondary: #e0c3fc;
-      --accent: #c2ffd8;
-      --shadow: rgba(0, 0, 0, 0.28);
       --green: #7ef0a5;
       --red: #ff6b6b;
       --yellow: #facc15;
@@ -33,26 +26,7 @@
 
     html {
       scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(142, 197, 252, 0.26), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(224, 195, 252, 0.22), transparent 35%),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
-      overflow-x: hidden;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      background:
-        radial-gradient(circle at top left, rgba(142, 197, 252, 0.26), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(224, 195, 252, 0.22), transparent 35%),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
       margin: 0;
     }
@@ -106,10 +80,33 @@
       gap: 20px;
     }
 
+    .brand-container {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
     .brand {
-      font-size: 1.35rem;
+      font-family: 'Luxurious Script', cursive;
+      font-size: 2.4rem;
       font-weight: 700;
       letter-spacing: 0.04em;
+      color: white;
+    }
+
+    .brand:hover {
+      text-decoration: none;
+    }
+
+    .subtext {
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .subtext:hover {
+      text-decoration: none;
       color: white;
     }
 
@@ -299,7 +296,6 @@
       box-shadow: 0 0 12px rgba(126, 240, 165, 0.8);
     }
 
-    /* Dynamic color variants */
     .status[data-color="green"] {
       background: var(--green-soft);
       color: #d8ffe7;
@@ -331,28 +327,6 @@
     .status[data-color="yellow"]::before {
       background: var(--yellow);
       box-shadow: 0 0 12px rgba(250, 204, 21, 0.8);
-    }
-
-    .status[data-color="blue"] {
-      background: var(--blue-soft);
-      color: #bfdbfe;
-      border: 1px solid rgba(96, 165, 250, 0.3);
-    }
-
-    .status[data-color="blue"]::before {
-      background: var(--blue);
-      box-shadow: 0 0 12px rgba(96, 165, 250, 0.8);
-    }
-
-    .status[data-color="purple"] {
-      background: var(--purple-soft);
-      color: #f3e8ff;
-      border: 1px solid rgba(216, 180, 254, 0.3);
-    }
-
-    .status[data-color="purple"]::before {
-      background: var(--purple);
-      box-shadow: 0 0 12px rgba(216, 180, 254, 0.8);
     }
 
     .project-card h2 {
@@ -397,6 +371,15 @@
       font-weight: 600;
     }
 
+    footer {
+      margin-top: 60px;
+      padding: 28px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
     @media (max-width: 700px) {
       .topbar {
         padding: 16px 18px;
@@ -422,7 +405,10 @@
 <body>
   <div class="page-shell">
     <header class="topbar glass">
-      <div class="brand">Ancient Kira</div>
+      <div class="brand-container">
+        <a href="/" class="brand">Lucily</a>
+        <a href="/about/" class="subtext">by Ancient Kira</a>
+      </div>
       <nav class="nav" aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/projects/" class="active">Projects</a>
@@ -447,7 +433,7 @@
           <a href="https://github.com/AncientKira21/mcarem/releases" style="position: absolute; inset: 0; z-index: 2;" aria-label="View MCA Remastered"></a>
           <div class="project-meta">
             <span class="tag">Minecraft</span>
-            <span class="status" data-color="green">Active</span>
+            <span class="status" data-color="green">Active, Weekly</span>
           </div>
           <div>
             <h2><a href="/projects/mcarem/" class="project-link">MCA Remastered</a></h2>
@@ -466,7 +452,7 @@
         </article>
 
         <article class="project-card glass">
-          <a href="https://github.com/AncientKira21/flashpipe/releases" style="position: absolute; inset: 0; z-index: 2;" aria-label="View MCA Remastered"></a>
+          <a href="https://github.com/AncientKira21/flashpipe/releases" style="position: absolute; inset: 0; z-index: 2;" aria-label="View FlashPipe"></a>
           <div class="project-meta">
             <span class="tag">Android</span>
             <span class="status" data-color="red">Abandoned</span>
@@ -479,32 +465,38 @@
           </div>
           <div class="project-footer">
             <span class="mini">HTML / CSS</span>
-            <span style="display: flex; gap: 12px;">
-              <a href="https://xdaforums.com/t/delta-macos-flashpipe-native-swiftui-tool-for-adb-fastboot.4772841/" class="project-link">XDA</a>
-              <a href="https://github.com/AncientKira21/flashpipe" class="project-link">GitHub</a>
+            <span style="display: flex; gap: 12px; position: relative; z-index: 3;">
+              <a href="https://xdaforums.com/t/delta-macos-flashpipe-native-swiftui-tool-for-adb-fastboot.4772841/" class="project-link" target="_blank" rel="noopener">XDA</a>
+              <a href="https://github.com/AncientKira21/flashpipe" class="project-link" target="_blank" rel="noopener">GitHub</a>
             </span>
           </div>
         </article>
 
         <article class="project-card glass">
+          <a href="https://www.youtube.com/@AncientKira" style="position: absolute; inset: 0; z-index: 2;" aria-label="View Channel"></a>
           <div class="project-meta">
-            <span class="tag">Creative</span>
-            <span class="status" data-color="yellow">Coming Soon</span>
+            <span class="tag">YouTube</span>
+            <span class="status" data-color="red">Forgot to update</span>
           </div>
           <div>
-            <h2>Next Experiments</h2>
+            <h2>YouTube Channel</h2>
             <p>
-              New creative explorations are being planned, including interactive ideas, visual prototypes,
-              and more personal projects shaped by experimentation and design.
+              A YouTube chaneel featuring iOS and macOS evolution and stuff. We did not have enough time to update this.
             </p>
           </div>
           <div class="project-footer">
-            <span class="mini">Research</span>
-            <a href="#" class="project-link">Soon</a>
+            <span class="mini">Entertainment / Video</span>
+            <a href="https://www.youtube.com/@AncientKira" class="project-link">Ancient Kira</a>
+            <a href="https://www.youtube.com/@KiraExplores" class="project-link">Kira Tech Foundry</a>
           </div>
         </article>
       </section>
     </main>
+
+    <footer>
+      <p>This site is made with GitHub Pages.</p>
+      <p>Licensed under Apache 2.0.</p>
+    </footer>
   </div>
 </body>
 </html>
