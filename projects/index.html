@@ -4,481 +4,85 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lucily | Projects</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --stroke: rgba(255, 255, 255, 0.18);
-      --text: #f5f7ff;
-      --muted: rgba(255, 255, 255, 0.75);
-      --green: #7ef0a5;
-      --red: #ff6b6b;
-      --yellow: #facc15;
-      --blue: #60a5fa;
-      --purple: #d8b4fe;
-      --green-soft: rgba(126, 240, 165, 0.12);
-      --red-soft: rgba(255, 107, 107, 0.12);
-      --yellow-soft: rgba(250, 204, 21, 0.14);
-      --blue-soft: rgba(96, 165, 250, 0.12);
-      --purple-soft: rgba(216, 180, 254, 0.12);
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      margin: 0;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text);
-      background: transparent;
-      overflow-x: hidden;
-    }
-    
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01), rgba(255,255,255,0.05));
-      pointer-events: none;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .glass {
-      background: rgba(255, 255, 255, 0.09);
-      border: 1px solid var(--stroke);
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    .page-shell {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 20px 80px;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      margin-top: 20px;
-      border-radius: 22px;
-      padding: 14px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand-container {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-    }
-
-    .brand {
-      font-family: 'Luxurious Script', cursive;
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: white;
-    }
-
-    .brand:hover {
-      text-decoration: none;
-    }
-
-    .subtext {
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .subtext:hover {
-      text-decoration: none;
-      color: white;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      padding: 10px 16px;
-      border-radius: 999px;
-      color: var(--muted);
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
-
-    .nav a:hover {
-      background: rgba(255,255,255,0.08);
-      color: white;
-    }
-
-    .nav a.active {
-      background: linear-gradient(135deg, rgba(142,197,252,0.18), rgba(224,195,252,0.18));
-      color: white;
-      border: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .hero {
-      margin-top: 42px;
-      padding: 46px 28px;
-      border-radius: 30px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -60px;
-      top: -60px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.24), transparent 60%);
-      filter: blur(10px);
-    }
-
-    .kicker {
-      display: inline-block;
-      margin-bottom: 16px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--muted);
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.5rem, 4vw, 4.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.06em;
-      max-width: 760px;
-    }
-
-    .hero p {
-      margin: 18px 0 0;
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-
-    .actions {
-      margin-top: 28px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 16px;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border: 1px solid var(--stroke);
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-    }
-
-    .button.primary {
-      background: linear-gradient(135deg, rgba(142,197,252,0.25), rgba(224,195,252,0.25));
-      color: white;
-    }
-
-    .button.secondary {
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-    }
-
-    .projects-grid {
-      margin-top: 42px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-    }
-
-    .project-card {
-      padding: 22px;
-      border-radius: 24px;
-      position: relative;
-      overflow: hidden;
-      min-height: 260px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 42px rgba(31, 38, 135, 0.35);
-      background: rgba(255, 255, 255, 0.13);
-    }
-
-    .project-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--muted);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.72rem;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: var(--green-soft);
-      color: #d8ffe7;
-      border: 1px solid rgba(126, 240, 165, 0.25);
-    }
-
-    .status::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 12px rgba(126, 240, 165, 0.8);
-    }
-
-    .status[data-color="green"] {
-      background: var(--green-soft);
-      color: #d8ffe7;
-      border: 1px solid rgba(126, 240, 165, 0.25);
-    }
-
-    .status[data-color="green"]::before {
-      background: var(--green);
-      box-shadow: 0 0 12px rgba(126, 240, 165, 0.8);
-    }
-
-    .status[data-color="red"] {
-      background: var(--red-soft);
-      color: #ffd5d5;
-      border: 1px solid rgba(255, 107, 107, 0.28);
-    }
-
-    .status[data-color="red"]::before {
-      background: var(--red);
-      box-shadow: 0 0 12px rgba(255, 107, 107, 0.8);
-    }
-
-    .status[data-color="yellow"] {
-      background: var(--yellow-soft);
-      color: #fff4bf;
-      border: 1px solid rgba(250, 204, 21, 0.3);
-    }
-
-    .status[data-color="yellow"]::before {
-      background: var(--yellow);
-      box-shadow: 0 0 12px rgba(250, 204, 21, 0.8);
-    }
-
-    .project-card h2 {
-      margin: 18px 0 10px;
-      font-size: 1.6rem;
-    }
-
-    .project-card p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .project-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 22px;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .project-link {
-      color: white;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .project-link:hover {
-      text-decoration: underline;
-    }
-
-    .mini {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    footer {
-      margin-top: 60px;
-      padding: 28px 0 0;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      text-align: center;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    @media (max-width: 700px) {
-      .topbar {
-        padding: 16px 18px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav {
-        width: 100%;
-      }
-
-      .nav a {
-        flex: 1 1 auto;
-        text-align: center;
-      }
-
-      .hero {
-        padding: 32px 20px;
-      }
-    }
-  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" type="image/svg+xml" href="../assets/lucily.svg">
 </head>
 <body>
+<div class="bg-ambient" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="grid-overlay" aria-hidden="true"></div>
   <div class="page-shell">
-    <header class="topbar glass">
-      <div class="brand-container">
-        <a href="/" class="brand">Lucily</a>
-        <a href="/about/" class="subtext">by Ancient Kira</a>
-      </div>
-      <nav class="nav" aria-label="Main navigation">
+    <header><nav class="nav" aria-label="Main navigation">
+<div class="brand-container"><a class="logo" href="/"><span class="logo-mark" aria-hidden="true"><svg class="lucily-fa-svg" viewBox="6 8 52 48" aria-hidden="true"><svg x="8" y="13" width="48" height="40" viewBox="0 0 640 512" fill="white"><path d="M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z" /></svg><svg x="17" y="17" width="30" height="30" viewBox="0 0 576 512" fill="white"><path d="M413.5 237.5c-28.2 4.8-58.2-3.6-80-25.4l-38.1-38.1C280.4 159 272 138.8 272 117.6V105.5L192.3 62c-5.3-2.9-8.6-8.6-8.3-14.7s3.9-11.5 9.5-14l47.2-21C259.1 4.2 279 0 299.2 0h18.1c36.7 0 72 14 98.7 39.1l44.6 42c24.2 22.8 33.2 55.7 26.6 86L503 183l8-8c9.4-9.4 24.6-9.4 33.9 0l24 24c9.4 9.4 9.4 24.6 0 33.9l-88 88c-9.4 9.4-24.6 9.4-33.9 0l-24-24c-9.4-9.4-9.4-24.6 0-33.9l8-8-17.5-17.5zM27.4 377.1L260.9 182.6c3.5 4.9 7.5 9.6 11.8 14l38.1 38.1c6 6 12.4 11.2 19.2 15.7L134.9 484.6c-14.5 17.4-36 27.4-58.6 27.4C34.1 512 0 477.8 0 435.7c0-22.6 10.1-44.1 27.4-58.6z" /></svg></svg></span><span>Lucily</span></a><a class="subtext" href="/about/">by Ancient Kira</a></div>
+<button class="nav-toggle" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+<div class="nav-links" id="navLinks">
         <a href="/">Home</a>
-        <a href="/projects/" class="active">Projects</a>
+        <a href="/projects/" class="active" aria-current="page">Projects</a>
         <a href="/about/">About</a>
-      </nav>
-    </header>
+      </div></nav></header>
 
     <main>
-      <section class="hero glass">
-        <div class="kicker">Portfolio</div>
-        <h1>Projects built with passion.</h1>
+      <section class="hero">
+        <!-- <div class="badge"><span class="dot"></span> Portfolio</div> -->
+        <h1>Projects built <span class="gradient">with passion.</span></h1>
         <p>
           A collection of passion-made projects I have ever made.
         </p>
-        <div class="actions">
-          <a class="button secondary" href="/">Back Home</a>
-        </div>
+        <div class="stats"><div class="stat"><div class="stat-num">3</div><div class="stat-label">Projects</div></div><div class="stat"><div class="stat-num">100%</div><div class="stat-label">Ad-free</div></div></div>
+<div class="search-wrap"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="search" type="search" aria-label="Search projects" placeholder="Search projects by name or description..."></div>
+<div class="filters" aria-label="Project categories">
+<button class="chip active" data-filter="all" aria-pressed="true"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> All Projects</button>
+<button class="chip" data-filter="Minecraft" aria-pressed="false"><i class="fa-solid fa-cubes" aria-hidden="true"></i> Minecraft</button>
+<button class="chip" data-filter="Android" aria-pressed="false"><svg xmlns="http://www.w3.org/2000/svg" class="category-icon" viewBox="0 0 330.2 192.5" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" transform="translate(-275.3 -379.6)" d="M 604.9,564.8 c -0.1,-0.7 -0.2,-1.3 -0.3,-2 -0.7,-4.1 -1.5,-8.2 -2.5,-12.3 -1.7,-7.1 -3.9,-14 -6.5,-20.6 -2.2,-5.7 -4.7,-11.2 -7.5,-16.5 -3.6,-6.8 -7.6,-13.4 -12.1,-19.7 -5.5,-7.7 -11.6,-14.8 -18.2,-21.5 -2.8,-2.8 -5.7,-5.5 -8.7,-8 -6.5,-5.6 -13.4,-10.7 -20.7,-15.2 0.1,-0.1 0.1,-0.2 0.2,-0.3 3.3,-5.8 6.7,-11.5 10,-17.3 3.3,-5.6 6.5,-11.2 9.8,-16.9 2.3,-4 4.7,-8.1 7,-12.1 0.6,-1 1,-1.9 1.3,-3 0.9,-2.8 1,-5.8 0.2,-8.6 -0.2,-0.7 -0.4,-1.4 -0.7,-2 -0.3,-0.7 -0.6,-1.3 -1,-1.9 -1.2,-2.1 -3,-3.9 -5.3,-5.2 -2,-1.2 -4.2,-1.9 -6.5,-2.1 -1,-0.1 -1.9,-0.1 -2.9,0 -0.8,0.1 -1.6,0.2 -2.3,0.4 -2.8,0.7 -5.3,2.2 -7.3,4.4 -0.7,0.8 -1.4,1.7 -1.9,2.6 -2.3,4 -4.7,8.1 -7,12.1 l -9.8,16.9 c -3.3,5.8 -6.7,11.5 -10,17.3 -0.4,0.6 -0.7,1.3 -1.1,1.9 -0.5,-0.2 -1,-0.4 -1.5,-0.6 -18.4,-7 -38.3,-10.8 -59.2,-10.8 -0.6,0 -1.1,0 -1.7,0 -18.5,0.2 -36.3,3.4 -53,9.2 -1.9,0.7 -3.8,1.4 -5.7,2.1 -0.3,-0.6 -0.7,-1.2 -1,-1.8 -3.3,-5.8 -6.7,-11.5 -10,-17.3 -3.3,-5.6 -6.5,-11.2 -9.8,-16.9 -2.3,-4 -4.7,-8.1 -7,-12.1 -0.6,-1 -1.2,-1.8 -1.9,-2.6 -2,-2.2 -4.6,-3.7 -7.3,-4.4 -0.8,-0.2 -1.6,-0.3 -2.3,-0.4 -1,-0.1 -1.9,-0.1 -2.9,0 -2.3,0.2 -4.5,0.9 -6.5,2.1 -2.2,1.3 -4,3.1 -5.3,5.2 -0.4,0.6 -0.7,1.2 -1,1.9 -0.3,0.7 -0.5,1.3 -0.7,2 -0.7,2.8 -0.7,5.7 0.2,8.6 0.3,1 0.8,2 1.3,3 2.3,4 4.7,8.1 7,12.1 3.3,5.6 6.5,11.2 9.8,16.9 3.3,5.8 6.7,11.5 10,17.3 0,0 0.1,0.1 0.1,0.1 -6.7,4.2 -13.1,8.8 -19.2,13.9 -3.6,3 -7.1,6.2 -10.4,9.5 -6.7,6.6 -12.7,13.8 -18.2,21.5 -4.5,6.3 -8.5,12.8 -12.1,19.7 -2.8,5.3 -5.3,10.8 -7.5,16.5 -2.6,6.7 -4.8,13.6 -6.5,20.6 -1,4 -1.8,8.1 -2.5,12.3 -0.1,0.7 -0.2,1.3 -0.3,2 -0.4,2.4 -0.7,4.8 -1,7.3 h 330.5 c 0,-2.5 -0.3,-4.9 -0.6,-7.3 z M 526.5,526.3 c 6.6,-4.4 7.6,-14.6 2.1,-22.7 -5.4,-8.2 -15.2,-11.2 -21.8,-6.8 -6.6,4.4 -7.6,14.6 -2.1,22.7 5.4,8.2 15.2,11.2 21.8,6.8 z M 376.7,519.6 c 5.4,-8.2 4.5,-18.3 -2.1,-22.7 -6.6,-4.4 -16.4,-1.4 -21.8,6.8 -5.4,8.2 -4.5,18.3 2.1,22.7 6.6,4.4 16.3,1.3 21.8,-6.8 z"/></svg> Android</button>
+<button class="chip" data-filter="YouTube" aria-pressed="false"><i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube</button>
+</div>
       </section>
 
-      <section id="projects" class="projects-grid" aria-label="Project list">
-        <article class="project-card glass">
-          <div class="project-meta">
-            <span class="tag">Minecraft</span>
-            <span class="status" data-color="green">Active, Weekly</span>
-          </div>
-          <div>
-            <h2><a href="https://github.com/AncientKira21/mcarem/releases" class="project-link" target="_blank" rel="noopener">MCA Remastered</a></h2>
-            <p>
+      <div class="section-head"><h2>Project Gallery</h2><div class="gallery-tools"><span id="resultCount" role="status">3 projects available</span><label for="sort">Sort</label><select id="sort"><option value="default">Featured</option><option value="az">Name A–Z</option><option value="za">Name Z–A</option><option value="status">Active first</option></select></div></div>
+<section id="projects" class="themes-grid projects-grid" aria-label="Project list">
+        <article class="theme-card project-card" data-category="Minecraft" data-name="MCA Remastered" data-order="0" data-active="true">
+<div class="theme-preview project-preview preview-0"><span class="theme-tag">Minecraft</span><div class="project-art" aria-hidden="true"><i class="fa-solid fa-cubes"></i><span>MCA Remastered</span></div></div>
+<div class="theme-info"><div class="project-meta"><span class="project-status" data-color="green">Active, Weekly</span><span class="mini">Modding / Java</span></div><h2 class="theme-name"><a href="https://github.com/AncientKira21/mcarem/releases" class="project-link" target="_blank" rel="noopener">MCA Remastered</a></h2><p class="theme-meta project-description">
               Built upon MCA Reborn, this project expands the experience with richer village communication,
               immersive storytelling, and a playful set of in-world ideas and memes. Just updated with the fresh new 8.1.13.
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="mini">Modding / Java</span>
-            <span style="display: flex; gap: 12px;">
-              <a href="https://www.curseforge.com/minecraft/mc-mods/minecraft-comes-alive-remastered" class="project-link" target="_blank" rel="noopener">CurseForge</a>
-              <a href="https://github.com/AncientKira21/mcarem" class="project-link" target="_blank" rel="noopener">GitHub</a>
-            </span>
-          </div>
-        </article>
+            </p><div class="theme-actions"><a class="btn-download" href="https://www.curseforge.com/minecraft/mc-mods/minecraft-comes-alive-remastered"  target="_blank" rel="noopener"><i class="fa-solid fa-fire" aria-hidden="true"></i> Download on CurseForge</a><a class="btn-download" href="https://github.com/AncientKira21/mcarem/releases" target="_blank" rel="noopener"><i class="fa-solid fa-download" aria-hidden="true"></i> Download on GitHub</a><a class="btn-download" href="https://github.com/AncientKira21/mcarem"  target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub Source</a></div></div></article>
 
-        <article class="project-card glass">
-          <div class="project-meta">
-            <span class="tag">Android</span>
-            <span class="status" data-color="red">Abandoned</span>
-          </div>
-          <div>
-            <h2><a href="https://github.com/AncientKira21/flashpipe/releases" class="project-link" target="_blank" rel="noopener">FlashPipe</a></h2>
-            <p>
+        <article class="theme-card project-card" data-category="Android" data-name="FlashPipe" data-order="1" data-icon="flashpipe" data-active="false">
+<div class="theme-preview project-preview preview-1"><span class="theme-tag">Android</span><div class="project-art" aria-hidden="true"><i class="fa-solid fa-mobile-screen-button"></i><span>FlashPipe</span></div></div>
+<div class="theme-info"><div class="project-meta"><span class="project-status" data-color="red">Abandoned</span><span class="mini">HTML / CSS</span></div><h2 class="theme-name"><a href="https://github.com/AncientKira21/flashpipe/releases" class="project-link" target="_blank" rel="noopener">FlashPipe</a></h2><p class="theme-meta project-description">
               A project that helps flash Android devices with ease, but unfortunately I got too busy and did not look back again. :(
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="mini">HTML / CSS</span>
-            <span style="display: flex; gap: 12px;">
-              <a href="https://xdaforums.com/t/delta-macos-flashpipe-native-swiftui-tool-for-adb-fastboot.4772841/" class="project-link" target="_blank" rel="noopener">XDA</a>
-              <a href="https://github.com/AncientKira21/flashpipe" class="project-link" target="_blank" rel="noopener">GitHub</a>
-            </span>
-          </div>
-        </article>
+            </p><div class="theme-actions"><a class="btn-download" href="https://xdaforums.com/t/delta-macos-flashpipe-native-swiftui-tool-for-adb-fastboot.4772841/"  target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Download on XDA post</a><a class="btn-download" href="https://github.com/AncientKira21/flashpipe/releases" target="_blank" rel="noopener"><i class="fa-solid fa-download" aria-hidden="true"></i> Download on GitHub</a><a class="btn-download" href="https://github.com/AncientKira21/flashpipe"  target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub Source</a></div></div></article>
 
-        <article class="project-card glass">
-          <div class="project-meta">
-            <span class="tag">YouTube</span>
-            <span class="status" data-color="red">Forgot to update</span>
-          </div>
-          <div>
-            <h2><a href="https://www.youtube.com/@AncientKira" class="project-link" target="_blank" rel="noopener">YouTube Channel</a></h2>
-            <p>
+        <article class="theme-card project-card" data-category="YouTube" data-name="YouTube Channel" data-order="2" data-icon="youtube" data-active="false">
+<div class="theme-preview project-preview preview-2"><span class="theme-tag">YouTube</span><div class="project-art" aria-hidden="true"><i class="fa-brands fa-youtube"></i><span>YouTube Channel</span></div></div>
+<div class="theme-info"><div class="project-meta"><span class="project-status" data-color="red">Forgot to update</span><span class="mini">Entertainment / Video</span></div><h2 class="theme-name"><a href="https://www.youtube.com/@AncientKira" class="project-link" target="_blank" rel="noopener">YouTube Channel</a></h2><p class="theme-meta project-description">
               A YouTube channel featuring iOS and macOS evolution and stuff. We did not have enough time to update this.
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="mini">Entertainment / Video</span>
-            <span style="display: flex; gap: 12px;">
-              <a href="https://www.youtube.com/@AncientKira" class="project-link" target="_blank" rel="noopener">Ancient Kira</a>
-              <a href="https://www.youtube.com/@KiraExplores" class="project-link" target="_blank" rel="noopener">KTF</a>
-            </span>
-          </div>
-        </article>
-      </section>
+            </p><div class="theme-actions"><a class="btn-download" href="https://www.youtube.com/@AncientKira"  target="_blank" rel="noopener"><i class="fa-brands fa-youtube" aria-hidden="true"></i> Go to Ancient Kira</a><a class="btn-download" href="https://www.youtube.com/@KiraExplores"  target="_blank" rel="noopener"><i class="fa-brands fa-youtube" aria-hidden="true"></i> Go to KTF</a></div></div></article>
+      </section><div class="no-results" id="noResults" hidden><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><h3>No projects found</h3><p>Try another search or category.</p></div>
     </main>
 
     <footer>
+      <p class="icon-credits">Design adapted from <a href="https://chris1111.github.io/My-Simple-OC-Themes/" target="_blank" rel="noopener">My Simple OC Themes by chris1111</a>, with tweaks. Icons by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a> (<a href="https://fontawesome.com/license/free" target="_blank" rel="noopener">Free license</a>). Android icon by <a href="https://www.android.com/" target="_blank" rel="noopener">Google</a>, adapted for monochrome display. Android is a trademark of Google LLC. Remastered Happy Mac logo by <a href="https://www.reddit.com/r/mac/comments/dtpac6/i_made_a_remastered_happy_mac_logo_feel_free_to/" target="_blank" rel="noopener">u/Zulimations on Reddit</a>, redrawn as a simplified monochrome SVG and recolored for this site.</p>
       <p>This site is made with GitHub Pages.</p>
       <p>Licensed under Apache 2.0.</p>
     </footer>
   </div>
+<script>
+const menuToggle = document.querySelector('.nav-toggle');
+menuToggle.addEventListener('click', () => {
+  const expanded = menuToggle.getAttribute('aria-expanded') !== 'true';
+  menuToggle.setAttribute('aria-expanded', String(expanded));
+  document.getElementById('navLinks').classList.toggle('open', expanded);
+});
+</script>
+<script src="../assets/categories.js"></script>
+<script src="../assets/project-icons.js"></script>
+<script src="../assets/gallery.js"></script>
+<button class="back-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+<script src="../assets/back-top.js"></script>
 </body>
 </html>

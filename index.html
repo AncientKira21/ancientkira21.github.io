@@ -4,335 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lucily | Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg1: #0f1025;
-      --bg2: #1d1f3a;
-      --stroke: rgba(255, 255, 255, 0.18);
-      --text: #f5f7ff;
-      --muted: rgba(255, 255, 255, 0.75);
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      margin: 0;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text);
-      background: transparent;
-      overflow-x: hidden;
-    }
-    
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01), rgba(255,255,255,0.05));
-      pointer-events: none;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .glass {
-      background: rgba(255, 255, 255, 0.09);
-      border: 1px solid var(--stroke);
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    .page-shell {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 20px 80px;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      margin-top: 20px;
-      border-radius: 22px;
-      padding: 14px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand-container {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-    }
-
-    .brand {
-      font-family: 'Luxurious Script', cursive;
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: white;
-    }
-
-    .brand:hover {
-      text-decoration: none;
-    }
-
-    .subtext {
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .subtext:hover {
-      text-decoration: none;
-      color: white;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      padding: 10px 16px;
-      border-radius: 999px;
-      color: var(--muted);
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
-
-    .nav a:hover {
-      background: rgba(255,255,255,0.08);
-      color: white;
-    }
-
-    .nav a.active {
-      background: linear-gradient(135deg, rgba(142,197,252,0.18), rgba(224,195,252,0.18));
-      color: white;
-      border: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .hero {
-      margin-top: 42px;
-      padding: 46px 28px;
-      border-radius: 30px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -60px;
-      top: -60px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.24), transparent 60%);
-      filter: blur(10px);
-    }
-
-    .kicker {
-      display: inline-block;
-      margin-bottom: 16px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--muted);
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.5rem, 4vw, 4.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.06em;
-      max-width: 760px;
-    }
-
-    .hero p {
-      margin: 18px 0 0;
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-
-    .actions {
-      margin-top: 28px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 16px;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border: 1px solid var(--stroke);
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-    }
-
-    .button.primary {
-      background: linear-gradient(135deg, rgba(142,197,252,0.25), rgba(224,195,252,0.25));
-      color: white;
-    }
-
-    .button.secondary {
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-    }
-
-    .section-title {
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      margin: 60px 0 40px;
-      color: white;
-      text-align: center;
-      letter-spacing: -0.03em;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-    }
-
-    .feature-card {
-      padding: 22px;
-      border-radius: 24px;
-      position: relative;
-      overflow: hidden;
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: 12px;
-    }
-
-    .feature-card h3 {
-      margin: 0 0 12px;
-      font-size: 1.4rem;
-    }
-
-    .feature-card p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 0;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      margin-top: 60px;
-      padding: 28px 0 0;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      text-align: center;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    @media (max-width: 700px) {
-      .topbar {
-        padding: 16px 18px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav { width: 100%; }
-      .nav a { flex: 1 1 auto; text-align: center; }
-      .hero { padding: 32px 20px; }
-    }
-  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" type="image/svg+xml" href="assets/lucily.svg">
 </head>
 <body>
+<div class="bg-ambient" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="grid-overlay" aria-hidden="true"></div>
   <div class="page-shell">
-    <header class="topbar glass">
-      <div class="brand-container">
-        <a href="/" class="brand">Lucily</a>
-        <a href="/about/" class="subtext">by Ancient Kira</a>
-      </div>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="/" class="active">Home</a>
+    <header><nav class="nav" aria-label="Main navigation">
+<div class="brand-container"><a class="logo" href="/"><span class="logo-mark" aria-hidden="true"><svg class="lucily-fa-svg" viewBox="6 8 52 48" aria-hidden="true"><svg x="8" y="13" width="48" height="40" viewBox="0 0 640 512" fill="white"><path d="M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z" /></svg><svg x="17" y="17" width="30" height="30" viewBox="0 0 576 512" fill="white"><path d="M413.5 237.5c-28.2 4.8-58.2-3.6-80-25.4l-38.1-38.1C280.4 159 272 138.8 272 117.6V105.5L192.3 62c-5.3-2.9-8.6-8.6-8.3-14.7s3.9-11.5 9.5-14l47.2-21C259.1 4.2 279 0 299.2 0h18.1c36.7 0 72 14 98.7 39.1l44.6 42c24.2 22.8 33.2 55.7 26.6 86L503 183l8-8c9.4-9.4 24.6-9.4 33.9 0l24 24c9.4 9.4 9.4 24.6 0 33.9l-88 88c-9.4 9.4-24.6 9.4-33.9 0l-24-24c-9.4-9.4-9.4-24.6 0-33.9l8-8-17.5-17.5zM27.4 377.1L260.9 182.6c3.5 4.9 7.5 9.6 11.8 14l38.1 38.1c6 6 12.4 11.2 19.2 15.7L134.9 484.6c-14.5 17.4-36 27.4-58.6 27.4C34.1 512 0 477.8 0 435.7c0-22.6 10.1-44.1 27.4-58.6z" /></svg></svg></span><span>Lucily</span></a><a class="subtext" href="/about/">by Ancient Kira</a></div>
+<button class="nav-toggle" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+<div class="nav-links" id="navLinks">
+        <a href="/" class="active" aria-current="page">Home</a>
         <a href="/projects/">Projects</a>
         <a href="/about/">About</a>
-      </nav>
-    </header>
+      </div></nav></header>
 
     <main>
-      <section class="hero glass">
-        <div class="kicker">Welcome</div>
-        <h1>Creative exploration through code and design.</h1>
+      <section class="hero">
+        <!-- <div class="badge"><span class="dot"></span> Welcome</div> -->
+        <h1>Creative exploration through<br><span class="gradient">code and design.</span></h1>
         <p>
           I'm Ancient Kira, from Lucily, exploring the intersection of creativity, technical craft, and digital design.
           Building projects that blend storytelling with technical innovation.
         </p>
         <div class="actions">
-          <a class="button primary" href="/projects/">View Projects</a>
-          <a class="button secondary" href="/about/">Learn More</a>
+          <a class="btn-download" href="/projects/"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> View Projects</a>
+          <a class="btn-view" href="/about/"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Learn More</a>
         </div>
       </section>
 
       <section id="about">
         <h2 class="section-title">What I Do</h2>
-        <div class="features-grid">
-          <article class="feature-card glass">
-            <div class="feature-icon">🎮</div>
-            <div>
-              <h3>Minecraft Modding</h3>
-              <p>Creating immersive mod experiences with MCA Remastered, focusing on village interaction and enhancements.</p>
-            </div>
-          </article>
+        <div class="themes-grid projects-grid">
+          <article class="theme-card project-card feature-gallery-card"><div class="theme-preview project-preview preview-0"><div class="project-art" aria-hidden="true"><i class="fa-solid fa-cubes"></i></div></div><div class="theme-info"><h3 class="theme-name">Minecraft Modding</h3><p class="theme-meta project-description">Creating immersive mod experiences with MCA Remastered, focusing on village interaction and enhancements.</p></div></article>
 
-          <article class="feature-card glass">
-            <div class="feature-icon">🎨</div>
-            <div>
-              <h3>Web Design</h3>
-              <p>Crafting modern, visually cohesive websites using liquid glass and contemporary design principles.</p>
-            </div>
-          </article>
+          <article class="theme-card project-card feature-gallery-card"><div class="theme-preview project-preview preview-1"><div class="project-art" aria-hidden="true"><i class="fa-solid fa-palette"></i></div></div><div class="theme-info"><h3 class="theme-name">Web Design</h3><p class="theme-meta project-description">Crafting modern, visually cohesive websites using liquid glass and contemporary design principles.</p></div></article>
 
-          <article class="feature-card glass">
-            <div class="feature-icon">✨</div>
-            <div>
-              <h3>Ad-free work</h3>
-              <p>Less ads and payments, more fun! We never slap ads or paid VIP features.</p>
-            </div>
-          </article>
+          <article class="theme-card project-card feature-gallery-card"><div class="theme-preview project-preview preview-2"><div class="project-art" aria-hidden="true"><i class="fa-solid fa-heart"></i></div></div><div class="theme-info"><h3 class="theme-name">Ad-free work</h3><p class="theme-meta project-description">Less ads and payments, more fun! We never slap ads or paid VIP features.</p></div></article>
         </div>
       </section>
     </main>
 
     <footer>
+      <p class="icon-credits">Design adapted from <a href="https://chris1111.github.io/My-Simple-OC-Themes/" target="_blank" rel="noopener">My Simple OC Themes by chris1111</a>, with tweaks. Icons by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a> (<a href="https://fontawesome.com/license/free" target="_blank" rel="noopener">Free license</a>).</p>
       <p>This site is made with GitHub Pages.</p>
       <p>Licensed under Apache 2.0.</p>
     </footer>
   </div>
+<script>
+const menuToggle = document.querySelector('.nav-toggle');
+menuToggle.addEventListener('click', () => {
+  const expanded = menuToggle.getAttribute('aria-expanded') !== 'true';
+  menuToggle.setAttribute('aria-expanded', String(expanded));
+  document.getElementById('navLinks').classList.toggle('open', expanded);
+});
+</script>
+<button class="back-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+<script src="assets/back-top.js"></script>
 </body>
 </html>
