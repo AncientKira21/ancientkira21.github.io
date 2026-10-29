@@ -132,3 +132,8 @@ svg.category-icon { fill: currentColor; flex-shrink: 0; }
   .tag-list { animation-delay: .16s; }
   footer { animation-delay: .24s; }
 }
+.quick-links[aria-label="Helpful links"] .quick-link:nth-child(4) .icon { background: rgba(94,158,255,.12); color: var(--accent); }
+.quick-links[aria-label="Helpful links"] .quick-link:nth-child(5) .icon { background: rgba(255,107,157,.12); color: var(--accent-3); }
+
+.project-status[data-color="yellow"]::before { color: #facc15; }
+.project-preview .project-art > .coil-icon { width: 64px; height: 64px; color: var(--accent); }

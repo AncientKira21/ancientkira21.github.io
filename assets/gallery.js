@@ -72,3 +72,6 @@ filters.forEach(button => button.addEventListener('click', () => {
   });
   updateGallery();
 }));
+
+// Apply the selected default order on the initial page load.
+updateGallery();
