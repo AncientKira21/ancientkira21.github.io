@@ -91,3 +91,15 @@ svg.category-icon { fill: currentColor; flex-shrink: 0; }
 
 
 .logo-mark .lucily-fa-svg { display: block; width: 32px; height: 32px; fill: white; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero .about-profile-logo { animation: fadeUp .6s ease backwards; }
+}
+/* Stagger card entrances using the reference site's cardIn animation. */
+@media (prefers-reduced-motion: no-preference) {
+  .theme-card, .quick-link { animation: cardIn .6s ease backwards; }
+  .theme-card:nth-child(4n + 1), .quick-link:nth-child(4n + 1) { animation-delay: 0s; }
+  .theme-card:nth-child(4n + 2), .quick-link:nth-child(4n + 2) { animation-delay: .08s; }
+  .theme-card:nth-child(4n + 3), .quick-link:nth-child(4n + 3) { animation-delay: .16s; }
+  .theme-card:nth-child(4n + 4), .quick-link:nth-child(4n + 4) { animation-delay: .24s; }
+}
