@@ -103,3 +103,32 @@ svg.category-icon { fill: currentColor; flex-shrink: 0; }
   .theme-card:nth-child(4n + 3), .quick-link:nth-child(4n + 3) { animation-delay: .16s; }
   .theme-card:nth-child(4n + 4), .quick-link:nth-child(4n + 4) { animation-delay: .24s; }
 }
+/* Shared opening motion for page content; the navigation stays still. */
+@media (prefers-reduced-motion: no-preference) {
+  main > section:not(.hero),
+  main > .section-head,
+  main > .content-card,
+  main > .no-results,
+  .hero h1,
+  .hero p,
+  .hero .about-profile-logo,
+  .hero .badge,
+  .hero .error-code,
+  .hero .stats,
+  .hero .search-wrap,
+  .hero .filters,
+  .hero .actions,
+  .section-title,
+  .tag-list,
+  .theme-card,
+  .quick-link,
+  footer {
+    animation-name: fadeUp;
+    animation-duration: .6s;
+    animation-timing-function: ease;
+    animation-fill-mode: backwards;
+  }
+  .hero .actions { animation-delay: .3s; }
+  .tag-list { animation-delay: .16s; }
+  footer { animation-delay: .24s; }
+}
