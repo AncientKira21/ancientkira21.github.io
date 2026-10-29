@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2160" height="2160" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Remastered Happy Mac</title>
+  <desc id="desc">Scalable vector recreation of the supplied remastered Happy Mac logo, originally by Reddit user u/Zulimations. Transparent background.</desc>
+  <metadata>Original artwork: https://www.reddit.com/r/mac/comments/dtpac6/i_made_a_remastered_happy_mac_logo_feel_free_to/ . Vector recreation from the user-supplied reference.</metadata>
+  <defs>
+    <linearGradient id="case" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#e9eaec"/><stop offset=".48" stop-color="#dce1e5"/><stop offset="1" stop-color="#c9d1d6"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#3dcced"/><stop offset=".4" stop-color="#38b5fc"/><stop offset="1" stop-color="#2778f5"/>
+    </linearGradient>
+    <linearGradient id="foot" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#798587"/><stop offset=".05" stop-color="#8a9596"/><stop offset=".95" stop-color="#8a9596"/><stop offset="1" stop-color="#677374"/>
+    </linearGradient>
+    <linearGradient id="footShade" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#354043" stop-opacity=".65"/><stop offset="1" stop-color="#354043" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="caseInset" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="9" result="blur"/>
+      <feComposite in="SourceAlpha" in2="blur" operator="out" result="edge"/>
+      <feFlood flood-color="#536063" flood-opacity=".38"/>
+      <feComposite in2="edge" operator="in" result="shade"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="shade"/></feMerge>
+    </filter>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="slotShadow" x="-30%" y="-80%" width="160%" height="300%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#263c39" flood-opacity=".65"/>
+    </filter>
+    <clipPath id="screenClip"><rect x="351" y="258" width="365" height="290" rx="18"/></clipPath>
+    <clipPath id="footClip"><rect x="317" y="718" width="430" height="84" rx="12"/></clipPath>
+  </defs>
+  <rect x="317" y="718" width="430" height="84" rx="12" fill="url(#foot)"/>
+  <rect x="317" y="730" width="430" height="40" fill="url(#footShade)" clip-path="url(#footClip)"/>
+  <rect x="300" y="208" width="466" height="527" rx="21" fill="url(#case)" filter="url(#caseInset)"/>
+  <rect x="300.5" y="208.5" width="465" height="526" rx="20.5" fill="none" stroke="#f8f9fa" stroke-opacity=".65"/>
+  <g clip-path="url(#screenClip)">
+    <rect x="351" y="258" width="365" height="290" fill="#55aec1"/>
+    <rect x="367" y="278" width="333" height="270" rx="15" fill="url(#screen)" filter="url(#glow)"/>
+    <rect x="377" y="291" width="313" height="245" rx="12" fill="url(#screen)" filter="url(#glow)"/>
+  </g>
+  <g fill="#004d70">
+    <path d="M451.5 339.5h17v34h-17zM600.5 339.5h17v34h-17zM526 336h17v96.5h-33.5V415H526z"/>
+    <path d="M476.5 451.5h21c15.5 16 42.5 16 58.5 0h21.5c-24.5 38-76 38-101 0Z"/>
+  </g>
+  <g fill="#12332f" filter="url(#slotShadow)">
+    <rect x="359.5" y="620" width="51" height="16" rx="8"/>
+    <rect x="578.5" y="620" width="116" height="16" rx="8"/>
+  </g>
+</svg>
