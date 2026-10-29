@@ -1,2 +1,2 @@
-# Kinetix website
-Official website for Kinetix by Ancient Kira.
+# Lucily website
+Official website for Lucily by Ancient Kira.
