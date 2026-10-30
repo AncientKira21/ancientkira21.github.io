@@ -671,5 +671,11 @@ window.siteTranslations = {
     "zh-Hans": "搜索选项",
     "my": "ရွေးစရာများ ရှာရန်",
     "ja": "項目を検索"
+  },
+  "OpenCore Themes": {
+    "es": "Temas de OpenCore",
+    "zh-Hans": "OpenCore 主题",
+    "my": "OpenCore အပြင်အဆင်များ",
+    "ja": "OpenCoreテーマ"
   }
 };
