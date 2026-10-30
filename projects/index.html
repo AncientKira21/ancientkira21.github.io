@@ -6,11 +6,12 @@
   <title>Lucily | Projects</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;600&amp;family=Noto+Sans+Myanmar:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="stylesheet" href="../assets/site.css">
 <link rel="icon" type="image/svg+xml" href="../assets/lucily.svg">
+<script src="../assets/theme.js"></script>
 </head>
 <body>
 <div class="bg-ambient" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
@@ -23,7 +24,11 @@
         <a href="/">Home</a>
         <a href="/projects/" class="active" aria-current="page">Projects</a>
         <a href="/about/">About</a>
-      </div></nav></header>
+      </div><div class="language-control"><i class="fa-solid fa-globe" aria-hidden="true"></i><select class="language-select" aria-label="Language" data-no-translate><option value="en">English</option><option value="es">Español</option><option value="zh-Hans">简体中文</option><option value="my">မြန်မာ</option><option value="ja">日本語</option></select></div>
+<div class="theme-switch" data-mode="system">
+  <input type="range" min="0" max="2" step="1" value="0" aria-label="Color theme: System, Light, Dark" aria-valuetext="System">
+  <div class="theme-switch-labels" aria-hidden="true"><span title="System"><i class="fa-solid fa-desktop"></i></span><span><i class="fa-solid fa-sun"></i></span><span><i class="fa-solid fa-moon"></i></span></div>
+</div></nav></header>
 
     <main>
       <section class="hero">
@@ -74,9 +79,9 @@
 <section id="projects" class="themes-grid projects-grid" aria-label="Project list">
         <article class="theme-card project-card" data-category="Minecraft" data-name="MCA Remastered" data-order="0" data-active="true">
 <div class="theme-preview project-preview preview-0"><span class="theme-tag">Minecraft</span><div class="project-art" aria-hidden="true"><i class="fa-solid fa-cubes"></i><span>MCA Remastered</span></div></div>
-<div class="theme-info"><div class="project-meta"><span class="project-status" data-color="green">Active, Weekly</span><span class="mini">Modding / Java</span></div><h2 class="theme-name"><a href="https://github.com/AncientKira21/mcarem/releases" class="project-link" target="_blank" rel="noopener">MCA Remastered</a></h2><p class="theme-meta project-description">
+<div class="theme-info"><div class="project-meta"><span class="project-status" data-color="green">Active, Bi-Weekly</span><span class="mini">Modding / Java</span></div><h2 class="theme-name"><a href="https://github.com/AncientKira21/mcarem/releases" class="project-link" target="_blank" rel="noopener">MCA Remastered</a></h2><p class="theme-meta project-description">
               Built upon MCA Reborn, this project expands the experience with richer village communication,
-              immersive storytelling, and a playful set of in-world ideas and memes. Just updated with the fresh new 8.1.13.
+              immersive storytelling, and a playful set of in-world ideas and memes. Version 8.2.2 is coming soon.
             </p><div class="theme-actions"><a class="btn-download" href="https://www.curseforge.com/minecraft/mc-mods/minecraft-comes-alive-remastered"  target="_blank" rel="noopener"><i class="fa-solid fa-fire" aria-hidden="true"></i> Download on CurseForge</a><a class="btn-download" href="https://github.com/AncientKira21/mcarem/releases" target="_blank" rel="noopener"><i class="fa-solid fa-download" aria-hidden="true"></i> Download on GitHub</a><a class="btn-download" href="https://github.com/AncientKira21/mcarem"  target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub Source</a></div></div></article>
 
         <article class="theme-card project-card" data-category="Android" data-name="FlashPipe" data-order="1" data-icon="flashpipe" data-active="false">
@@ -124,5 +129,8 @@ menuToggle.addEventListener('click', () => {
 <script src="../assets/gallery.js"></script>
 <button class="back-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
 <script src="../assets/back-top.js"></script>
+<script src="../assets/dropdowns.js"></script>
+<script src="../assets/language-data.js"></script>
+<script src="../assets/languages.js"></script>
 </body>
 </html>

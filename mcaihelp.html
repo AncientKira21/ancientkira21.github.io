@@ -6,11 +6,12 @@
   <title>Lucily | MCArem AI Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;600&amp;family=Noto+Sans+Myanmar:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="icon" type="image/svg+xml" href="assets/lucily.svg">
+<script src="assets/theme.js"></script>
 </head>
 <body>
 <div class="bg-ambient" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
@@ -23,10 +24,15 @@
         <a href="/">Home</a>
         <a href="/projects/">Projects</a>
         <a href="/about/">About</a>
-      </div></nav></header>
+      </div><div class="language-control"><i class="fa-solid fa-globe" aria-hidden="true"></i><select class="language-select" aria-label="Language" data-no-translate><option value="en">English</option><option value="es">Español</option><option value="zh-Hans">简体中文</option><option value="my">မြန်မာ</option><option value="ja">日本語</option></select></div>
+<div class="theme-switch" data-mode="system">
+  <input type="range" min="0" max="2" step="1" value="0" aria-label="Color theme: System, Light, Dark" aria-valuetext="System">
+  <div class="theme-switch-labels" aria-hidden="true"><span title="System"><i class="fa-solid fa-desktop"></i></span><span><i class="fa-solid fa-sun"></i></span><span><i class="fa-solid fa-moon"></i></span></div>
+</div></nav></header>
 
     <main>
-      <article class="content-card" id="replaceable-text">
+      <p class="content-card guide-language-notice" hidden>Guide content is currently available in English.</p>
+      <article class="content-card" id="replaceable-text" data-no-translate>
         Loading...
       </article>
     </main>
@@ -181,5 +187,8 @@ menuToggle.addEventListener('click', () => {
 </script>
 <button class="back-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
 <script src="assets/back-top.js"></script>
+<script src="assets/dropdowns.js"></script>
+<script src="assets/language-data.js"></script>
+<script src="assets/languages.js"></script>
 </body>
 </html>

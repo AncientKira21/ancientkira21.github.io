@@ -1,5 +1,6 @@
 const grid = document.getElementById('projects');
 const cards = Array.from(grid.querySelectorAll('.project-card'));
+const englishSearchText = new Map(cards.map(card => [card, card.textContent.toLocaleLowerCase()]));
 const search = document.getElementById('search');
 const sort = document.getElementById('sort');
 const filterContainer = document.querySelector('.filters');
@@ -54,11 +55,12 @@ function updateGallery() {
   });
   let count = 0;
   for (const card of ordered) {
-    card.hidden = !(category === 'all' || card.dataset.category === category) || !card.textContent.toLocaleLowerCase().includes(query);
+    card.hidden = !(category === 'all' || card.dataset.category === category) || ![card.textContent.toLocaleLowerCase(), englishSearchText.get(card)].some(text => text.includes(query));
     if (!card.hidden) count++;
     grid.append(card);
   }
-  document.getElementById('resultCount').textContent = `${count} project${count === 1 ? '' : 's'} available`;
+  const result = `${count} project${count === 1 ? '' : 's'} available`;
+  document.getElementById('resultCount').textContent = result;
   document.getElementById('noResults').hidden = count !== 0;
 }
 search.addEventListener('input', updateGallery);
@@ -75,3 +77,5 @@ filters.forEach(button => button.addEventListener('click', () => {
 
 // Apply the selected default order on the initial page load.
 updateGallery();
+
+document.addEventListener('languagechange', updateGallery);
