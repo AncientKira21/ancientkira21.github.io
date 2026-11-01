@@ -13,10 +13,10 @@
   } catch {}
   function translate(source, values = {}) {
     let key = normalize(source);
-    const count = key.match(/^(\d+) projects? available$/);
+    const count = key.match(/^(\d+) (projects?|themes?) available$/);
     if (count) {
       values = { ...values, count: count[1] };
-      key = count[1] === '1' ? '{count} project available' : '{count} projects available';
+      key = count[2].startsWith('theme') ? '{count} themes available' : count[1] === '1' ? '{count} project available' : '{count} projects available';
     }
     let result;
     if (key.startsWith('Lucily | ')) {

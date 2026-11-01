@@ -2936,5 +2936,71 @@ window.openCoreThemes = [
     "source": "https://github.com/acidanthera/OcBinaryData",
     "description": "Reference OpenCanopy media set from OcBinaryData.",
     "order": 266
+  },
+  {
+    "id": "rockjesus/alienware",
+    "name": "Alienware",
+    "author": "RockJesus",
+    "tag": "Alienware",
+    "image": "https://user-images.githubusercontent.com/23656651/115138425-a5904e80-a05e-11eb-90fe-90d0082d7dbd.png",
+    "download": "https://github.com/RockJesus/Alienware-Opencore-Theme/archive/refs/heads/main.zip",
+    "source": "https://github.com/RockJesus/Alienware-Opencore-Theme/tree/main/Resources",
+    "description": "Alienware OpenCanopy theme by RockJesus.cn. Set PickerVariant to RockJesus.cn\\Alienware. Requires OpenCore 0.6.5 or later.",
+    "order": 2000
+  },
+  {
+    "id": "btwise/circleblobicon",
+    "name": "CircleBlobIcon",
+    "author": "btwise",
+    "tag": "Icons",
+    "image": "",
+    "download": "https://github.com/btwise/OpenCanopyIcons/raw/refs/heads/master/CircleBlobIcon.zip",
+    "source": "https://github.com/btwise/OpenCanopyIcons/blob/master/CircleBlobIcon.zip",
+    "description": "OpenCanopy icon set from btwise’s fork of pkdesign/OpenCanopyIcons. Original icon collection by pkdesign.",
+    "order": 2100
+  },
+  {
+    "id": "btwise/circleblobtext",
+    "name": "CircleBlobText",
+    "author": "btwise",
+    "tag": "Icons",
+    "image": "",
+    "download": "https://github.com/btwise/OpenCanopyIcons/raw/refs/heads/master/CircleBlobText.zip",
+    "source": "https://github.com/btwise/OpenCanopyIcons/blob/master/CircleBlobText.zip",
+    "description": "OpenCanopy icon set from btwise’s fork of pkdesign/OpenCanopyIcons. Original icon collection by pkdesign.",
+    "order": 2101
+  },
+  {
+    "id": "btwise/outline_v1.0",
+    "name": "Outline v1.0",
+    "author": "btwise",
+    "tag": "Icons",
+    "image": "",
+    "download": "https://github.com/btwise/OpenCanopyIcons/raw/refs/heads/master/Outline_v1.0.zip",
+    "source": "https://github.com/btwise/OpenCanopyIcons/blob/master/Outline_v1.0.zip",
+    "description": "OpenCanopy icon set from btwise’s fork of pkdesign/OpenCanopyIcons. Original icon collection by pkdesign.",
+    "order": 2102
+  },
+  {
+    "id": "btwise/outline_v1.1",
+    "name": "Outline v1.1",
+    "author": "btwise",
+    "tag": "Icons",
+    "image": "",
+    "download": "https://github.com/btwise/OpenCanopyIcons/raw/refs/heads/master/Outline_v1.1.zip",
+    "source": "https://github.com/btwise/OpenCanopyIcons/blob/master/Outline_v1.1.zip",
+    "description": "OpenCanopy icon set from btwise’s fork of pkdesign/OpenCanopyIcons. Original icon collection by pkdesign.",
+    "order": 2103
+  },
+  {
+    "id": "btwise/opencanopy-themes",
+    "name": "OpenCanopy Themes Collection",
+    "author": "btwise",
+    "tag": "Collection",
+    "image": "",
+    "download": "https://github.com/btwise/opencanopy-themes/archive/refs/heads/main.zip",
+    "source": "https://github.com/btwise/opencanopy-themes/tree/main/Resources",
+    "description": "OpenCanopy backgrounds and resources from btwise’s fork of Hackintoshlifeit/opencanopy-themes. Original collection by Hackintoshlifeit.",
+    "order": 2110
   }
 ];

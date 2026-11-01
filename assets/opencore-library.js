@@ -13,7 +13,7 @@
   const validUrl = value => {
     try {
       const url = new URL(value);
-      return url.protocol === 'https:' && ['github.com', 'raw.githubusercontent.com', 'dortania.github.io'].includes(url.hostname);
+      return url.protocol === 'https:' && ['github.com', 'raw.githubusercontent.com', 'user-images.githubusercontent.com', 'dortania.github.io'].includes(url.hostname);
     } catch { return false; }
   };
   function isTheme(theme) {
@@ -95,7 +95,7 @@
   let cached;
   try {
     cached = JSON.parse(localStorage.getItem(cacheKey));
-    if (cached && Array.isArray(cached.themes) && cached.themes.length && cached.themes.every(isTheme)) themes = cached.themes;
+    if (cached && Array.isArray(cached.themes) && cached.themes.length && cached.themes.every(isTheme)) themes = Array.from(new Map([...cached.themes, ...themes].map(theme => [theme.id, theme])).values());
   } catch {}
   render();
   if (cached?.updated && Date.now() - cached.updated < 6 * 60 * 60 * 1000) {

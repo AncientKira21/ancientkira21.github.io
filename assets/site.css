@@ -248,3 +248,21 @@ html[lang="zh-Hans"] body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHe
 
 .dropdown-menu { transform-origin: top right; }
 .dropdown-option { touch-action: pan-y; }
+
+/* OpenCore library uses the same gallery cards and controls as Lucily. */
+.opencore-grid { grid-auto-rows: 1fr; }
+.opencore-grid .theme-info { gap: 8px; }
+.opencore-grid .theme-name { font-size: 16px; overflow-wrap: anywhere; }
+.theme-creator { font-size: 12px; color: var(--accent); text-decoration: none; }
+.theme-creator:hover { text-decoration: underline; }
+.theme-description { font-family: inherit; font-size: 13px; color: var(--fg-dim); line-height: 1.6; margin-bottom: 12px; }
+.opencore-grid .theme-actions { padding-top: 10px; flex-wrap: wrap; }
+.opencore-grid .theme-actions a { flex: 1 1 max-content; font-size: 12px; padding: 10px 8px; }
+#themeSourceStatus { font-size: 12px; color: var(--fg-mute); margin-top: 8px; max-width: 400px; }
+.opencore-library .section-head { align-items: center; }
+.theme-preview-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: var(--bg-2); color: var(--fg-mute); font-size: 13px; }
+.theme-preview-fallback i { font-size: 28px; }
+.opencore-grid .theme-preview img { position: relative; }
+.opencore-grid .theme-tag { z-index: 2; }
+.opencore-library .hero .stat-num i { -webkit-text-fill-color: var(--accent-2); }
+@media (min-width: 851px) and (max-width: 1150px) { .nav { gap: 12px; padding-left: 20px; padding-right: 20px; } .nav-links { gap: 2px; } .nav-links a { padding: 8px 9px; } .subtext { display: none; } }

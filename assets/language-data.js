@@ -677,5 +677,227 @@ window.siteTranslations = {
     "zh-Hans": "OpenCore 主题",
     "my": "OpenCore အပြင်အဆင်များ",
     "ja": "OpenCoreテーマ"
+  },
+  "Find your next": {
+    "es": "Encuentra tu próximo",
+    "zh-Hans": "找一款新的",
+    "my": "နောက်ထပ် သုံးချင်တဲ့",
+    "ja": "次に使う"
+  },
+  "OpenCore theme.": {
+    "es": "tema de OpenCore.",
+    "zh-Hans": "OpenCore 主题。",
+    "my": "OpenCore အပြင်အဆင်။",
+    "ja": "OpenCoreテーマを探そう。"
+  },
+  "Boot themes from chris1111, Blackosx, and Acidanthera. Browse the previews, pick a style, and get it from the original creator.": {
+    "es": "Temas de arranque de chris1111, Blackosx y Acidanthera. Mira las vistas previas, elige un estilo y descárgalo de su creador.",
+    "zh-Hans": "来自 chris1111、Blackosx 和 Acidanthera 的启动主题。看看预览，挑个喜欢的，再去原作者那里下载。",
+    "my": "chris1111၊ Blackosx နဲ့ Acidanthera တို့ရဲ့ ဘွတ်အပြင်အဆင်တွေပါ။ နမူနာပုံတွေ ကြည့်ပြီး ကြိုက်တာကို မူရင်းဖန်တီးသူဆီက ဒေါင်းလုဒ်လုပ်နိုင်ပါတယ်။",
+    "ja": "chris1111、Blackosx、Acidantheraの起動テーマ。プレビューを見て、気に入ったものを作者のページからダウンロードできます。"
+  },
+  "Themes": {
+    "es": "Temas",
+    "zh-Hans": "主题",
+    "my": "အပြင်အဆင်များ",
+    "ja": "テーマ"
+  },
+  "Creators": {
+    "es": "Creadores",
+    "zh-Hans": "创作者",
+    "my": "ဖန်တီးသူများ",
+    "ja": "作者"
+  },
+  "Creator": {
+    "es": "Creador",
+    "zh-Hans": "作者",
+    "my": "ဖန်တီးသူ",
+    "ja": "作者"
+  },
+  "All creators": {
+    "es": "Todos los creadores",
+    "zh-Hans": "全部作者",
+    "my": "ဖန်တီးသူအားလုံး",
+    "ja": "すべての作者"
+  },
+  "Your boot, your style": {
+    "es": "Tu arranque, tu estilo",
+    "zh-Hans": "你的启动，你的风格",
+    "my": "သင့်ဘွတ်၊ သင့်စတိုင်",
+    "ja": "起動にも自分らしさを"
+  },
+  "Search themes": {
+    "es": "Buscar temas",
+    "zh-Hans": "搜索主题",
+    "my": "အပြင်အဆင် ရှာရန်",
+    "ja": "テーマを検索"
+  },
+  "Search themes, styles, or creators...": {
+    "es": "Busca temas, estilos o creadores...",
+    "zh-Hans": "搜索主题、风格或作者……",
+    "my": "အပြင်အဆင်၊ စတိုင် သို့မဟုတ် ဖန်တီးသူကို ရှာရန်…",
+    "ja": "テーマ名・スタイル・作者で検索…"
+  },
+  "Theme categories": {
+    "es": "Categorías de temas",
+    "zh-Hans": "主题分类",
+    "my": "အပြင်အဆင် အမျိုးအစားများ",
+    "ja": "テーマのカテゴリ"
+  },
+  "All Themes": {
+    "es": "Todos los temas",
+    "zh-Hans": "全部主题",
+    "my": "အပြင်အဆင်အားလုံး",
+    "ja": "すべてのテーマ"
+  },
+  "Minimal": {
+    "es": "Minimalista",
+    "zh-Hans": "极简",
+    "my": "ရိုးရှင်းသော",
+    "ja": "ミニマル"
+  },
+  "OpenCanopy Setup": {
+    "es": "Configurar OpenCanopy",
+    "zh-Hans": "设置 OpenCanopy",
+    "my": "OpenCanopy ပြင်ဆင်ရန်",
+    "ja": "OpenCanopyの設定"
+  },
+  "Get your boot picker ready": {
+    "es": "Prepara tu selector de arranque",
+    "zh-Hans": "准备好你的启动选择器",
+    "my": "ဘွတ်ရွေးချယ်ရာကို ပြင်ဆင်ရန်",
+    "ja": "起動ピッカーの準備"
+  },
+  "Background Collections": {
+    "es": "Colecciones de fondos",
+    "zh-Hans": "背景合集",
+    "my": "နောက်ခံပုံ စုစည်းမှုများ",
+    "ja": "背景コレクション"
+  },
+  "Wallpapers for your boot screen": {
+    "es": "Fondos para tu pantalla de arranque",
+    "zh-Hans": "给启动画面选张壁纸",
+    "my": "ဘွတ်မျက်နှာပြင်အတွက် နောက်ခံပုံများ",
+    "ja": "起動画面の壁紙"
+  },
+  "Original Galleries": {
+    "es": "Galerías originales",
+    "zh-Hans": "原始图库",
+    "my": "မူရင်း ပြခန်းများ",
+    "ja": "元のギャラリー"
+  },
+  "More previews and theme details": {
+    "es": "Más vistas previas y detalles",
+    "zh-Hans": "更多预览和主题详情",
+    "my": "နမူနာပုံနဲ့ အပြင်အဆင် အသေးစိတ်များ",
+    "ja": "プレビューとテーマの詳細"
+  },
+  "Theme Gallery": {
+    "es": "Galería de temas",
+    "zh-Hans": "主题一览",
+    "my": "အပြင်အဆင် ပြခန်း",
+    "ja": "テーマ一覧"
+  },
+  "Showing the saved catalogue.": {
+    "es": "Mostrando el catálogo guardado.",
+    "zh-Hans": "正在显示保存的目录。",
+    "my": "သိမ်းထားတဲ့ စာရင်းကို ပြနေပါတယ်။",
+    "ja": "保存済みの一覧を表示しています。"
+  },
+  "Showing the latest saved catalogue.": {
+    "es": "Mostrando el último catálogo guardado.",
+    "zh-Hans": "正在显示最近保存的目录。",
+    "my": "နောက်ဆုံး သိမ်းထားတဲ့ စာရင်းကို ပြနေပါတယ်။",
+    "ja": "最後に保存した一覧を表示しています。"
+  },
+  "Updated from the original sources.": {
+    "es": "Actualizado desde las fuentes originales.",
+    "zh-Hans": "已从原始来源更新。",
+    "my": "မူရင်းရင်းမြစ်တွေကနေ အပ်ဒိတ်လုပ်ထားပါတယ်။",
+    "ja": "元の配布元から更新しました。"
+  },
+  "Some sources are unavailable. Saved themes are still included.": {
+    "es": "Algunas fuentes no responden. Los temas guardados siguen disponibles.",
+    "zh-Hans": "部分来源暂时无法访问，保存的主题仍然可用。",
+    "my": "ရင်းမြစ်တချို့ကို မရနိုင်သေးပါ။ သိမ်းထားတဲ့ အပြင်အဆင်တွေ ဆက်ရှိပါတယ်။",
+    "ja": "一部の配布元に接続できません。保存済みのテーマも表示しています。"
+  },
+  "Sources are unavailable. Showing the saved catalogue.": {
+    "es": "Las fuentes no responden. Mostrando el catálogo guardado.",
+    "zh-Hans": "暂时无法访问来源，正在显示保存的目录。",
+    "my": "ရင်းမြစ်တွေကို မရနိုင်သေးလို့ သိမ်းထားတဲ့စာရင်းကို ပြနေပါတယ်။",
+    "ja": "配布元に接続できないため、保存済みの一覧を表示しています。"
+  },
+  "No themes found": {
+    "es": "No se encontraron temas",
+    "zh-Hans": "没找到主题",
+    "my": "အပြင်အဆင် မတွေ့ပါ",
+    "ja": "テーマが見つかりませんでした"
+  },
+  "Clear filters": {
+    "es": "Quitar filtros",
+    "zh-Hans": "清除筛选",
+    "my": "စစ်ထုတ်မှုများ ဖယ်ရန်",
+    "ja": "絞り込みを解除"
+  },
+  "Preview unavailable": {
+    "es": "Vista previa no disponible",
+    "zh-Hans": "暂无预览",
+    "my": "နမူနာပုံ မရနိုင်ပါ",
+    "ja": "プレビューなし"
+  },
+  "OpenCanopy theme by chris1111.": {
+    "es": "Tema de OpenCanopy de chris1111.",
+    "zh-Hans": "chris1111 制作的 OpenCanopy 主题。",
+    "my": "chris1111 ဖန်တီးထားသော OpenCanopy အပြင်အဆင်။",
+    "ja": "chris1111作のOpenCanopyテーマ。"
+  },
+  "OpenCanopy theme by Blackosx.": {
+    "es": "Tema de OpenCanopy de Blackosx.",
+    "zh-Hans": "Blackosx 制作的 OpenCanopy 主题。",
+    "my": "Blackosx ဖန်တီးထားသော OpenCanopy အပြင်အဆင်။",
+    "ja": "Blackosx作のOpenCanopyテーマ。"
+  },
+  "Reference OpenCanopy media set from OcBinaryData.": {
+    "es": "Conjunto de referencia de OpenCanopy de OcBinaryData.",
+    "zh-Hans": "OcBinaryData 提供的 OpenCanopy 参考资源集。",
+    "my": "OcBinaryData မှ OpenCanopy နမူနာ ဖိုင်စု။",
+    "ja": "OcBinaryDataのOpenCanopy標準メディアセット。"
+  },
+  "{count} themes available": {
+    "es": "{count} temas disponibles",
+    "zh-Hans": "共 {count} 款主题",
+    "my": "အပြင်အဆင် {count} ခု ရှိသည်",
+    "ja": "{count}件のテーマ"
+  },
+  "OpenCore themes": {
+    "es": "Temas de OpenCore",
+    "zh-Hans": "OpenCore 主题",
+    "my": "OpenCore အပြင်အဆင်များ",
+    "ja": "OpenCoreテーマ"
+  },
+  "Theme previews and downloads belong to their original authors; their licenses apply.": {
+    "es": "Las vistas previas y los temas pertenecen a sus autores; se aplican sus licencias.",
+    "zh-Hans": "主题预览和下载内容归原作者所有，适用各自的许可证。",
+    "my": "အပြင်အဆင်နဲ့ နမူနာပုံတွေကို မူရင်းဖန်တီးသူတွေ ပိုင်ဆိုင်ပြီး သက်ဆိုင်ရာ လိုင်စင်တွေ အကျုံးဝင်ပါတယ်။",
+    "ja": "プレビューとテーマは各作者のものです。それぞれのライセンスが適用されます。"
+  },
+  "Theme sources:": {
+    "es": "Fuentes de temas:",
+    "zh-Hans": "主题来源：",
+    "my": "အပြင်အဆင် ရင်းမြစ်များ:",
+    "ja": "テーマ配布元："
+  },
+  "and": {
+    "es": "y",
+    "zh-Hans": "和",
+    "my": "နှင့်",
+    "ja": "と"
+  },
+  ". Gallery references from": {
+    "es": ". Referencias de las galerías de",
+    "zh-Hans": "。图库参考自",
+    "my": "။ ပြခန်းအတွက် ကိုးကားထားသည်မှာ",
+    "ja": "。ギャラリーの参考："
   }
 };

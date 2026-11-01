@@ -504,7 +504,7 @@ header {
   padding: 80px 20px;
   color: var(--fg-mute);
 }
-.no-results i { font-size: 48px; margin-bottom: 16px; color: var(--fg-mute); }
+.no-results > i { font-size: 48px; margin-bottom: 16px; color: var(--fg-mute); }
 .no-results h3 { font-size: 18px; color: var(--fg); margin-bottom: 8px; }
 
 /* Back to top */
@@ -574,3 +574,6 @@ footer a:hover { color: var(--accent); }
   .nav { padding: 14px 20px; }
   .quick-links, .themes-grid, .section-head { padding-left: 20px; padding-right: 20px; }
 }
+
+.no-results .btn-view { margin-top: 16px; }
+.no-results .btn-view i { font-size: 1em; margin: 0; color: inherit; }
