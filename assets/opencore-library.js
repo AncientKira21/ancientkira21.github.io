@@ -4,6 +4,17 @@
   const search = document.getElementById('search');
   const author = document.getElementById('themeAuthor');
   const sort = document.getElementById('themeSort');
+  const groupByAuthor = document.getElementById('alsoSortByAuthor');
+  const nameOrder = new Intl.Collator(undefined, { sensitivity: 'base', numeric: true });
+  function compareThemes(a, b) {
+    if (groupByAuthor.checked) {
+      const creatorOrder = nameOrder.compare(a.author, b.author);
+      if (creatorOrder) return creatorOrder;
+    }
+    if (sort.value === 'az') return nameOrder.compare(a.name, b.name) || a.id.localeCompare(b.id);
+    if (sort.value === 'za') return nameOrder.compare(b.name, a.name) || a.id.localeCompare(b.id);
+    return a.order - b.order;
+  }
   const status = document.getElementById('themeSourceStatus');
   const sourceUrls = {
     release: 'https://api.github.com/repos/chris1111/My-Simple-OC-Themes/releases/tags/Archive_New-Themes',
@@ -76,20 +87,15 @@
       const text = [theme.name, theme.author, theme.tag, theme.description].join(' ').toLocaleLowerCase();
       return (currentFilter === 'all' || text.includes(currentFilter.toLocaleLowerCase())) && (author.value === 'all' || theme.author === author.value) && (!query || text.includes(query));
     });
-    filtered.sort((a, b) => {
-      if (sort.value === 'az') return a.name.localeCompare(b.name);
-      if (sort.value === 'za') return b.name.localeCompare(a.name);
-      if (sort.value === 'author') return a.author.localeCompare(b.author) || a.name.localeCompare(b.name);
-      return a.order - b.order;
-    });
+    filtered.sort(compareThemes);
     const fragment = document.createDocumentFragment(); filtered.forEach((theme, i) => fragment.append(createCard(theme, i))); grid.replaceChildren(fragment);
     document.getElementById('themeCount').textContent = themes.length;
     document.getElementById('themeResultCount').textContent = `${filtered.length} themes available`;
     document.getElementById('themeEmpty').hidden = filtered.length !== 0;
   }
-  search.addEventListener('input', render); author.addEventListener('change', render); sort.addEventListener('change', render);
+  search.addEventListener('input', render); author.addEventListener('change', render); sort.addEventListener('change', render); groupByAuthor.addEventListener('change', render);
   document.getElementById('clearThemeSearch').addEventListener('click', () => {
-    search.value = ''; author.value = 'all'; currentFilter = 'all'; updateFilters(); author.dispatchEvent(new Event('change')); search.focus();
+    search.value = ''; author.value = 'all'; groupByAuthor.checked = false; currentFilter = 'all'; updateFilters(); author.dispatchEvent(new Event('change')); search.focus();
   });
   const cacheKey = 'lucily-opencore-catalog-v1';
   let cached;

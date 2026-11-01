@@ -899,5 +899,11 @@ window.siteTranslations = {
     "zh-Hans": "。图库参考自",
     "my": "။ ပြခန်းအတွက် ကိုးကားထားသည်မှာ",
     "ja": "。ギャラリーの参考："
+  },
+  "Also Sort by Author": {
+    "es": "Agrupar también por autor",
+    "zh-Hans": "同时按作者分组",
+    "my": "ဖန်တီးသူအလိုက်လည်း စီရန်",
+    "ja": "作者ごとにも並べる"
   }
 };
