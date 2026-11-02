@@ -4,13 +4,8 @@
   const search = document.getElementById('search');
   const author = document.getElementById('themeAuthor');
   const sort = document.getElementById('themeSort');
-  const groupByAuthor = document.getElementById('alsoSortByAuthor');
   const nameOrder = new Intl.Collator(undefined, { sensitivity: 'base', numeric: true });
   function compareThemes(a, b) {
-    if (groupByAuthor.checked) {
-      const creatorOrder = nameOrder.compare(a.author, b.author);
-      if (creatorOrder) return creatorOrder;
-    }
     if (sort.value === 'az') return nameOrder.compare(a.name, b.name) || a.id.localeCompare(b.id);
     if (sort.value === 'za') return nameOrder.compare(b.name, a.name) || a.id.localeCompare(b.id);
     return a.order - b.order;
@@ -93,9 +88,9 @@
     document.getElementById('themeResultCount').textContent = `${filtered.length} themes available`;
     document.getElementById('themeEmpty').hidden = filtered.length !== 0;
   }
-  search.addEventListener('input', render); author.addEventListener('change', render); sort.addEventListener('change', render); groupByAuthor.addEventListener('change', render);
+  search.addEventListener('input', render); author.addEventListener('change', render); sort.addEventListener('change', render);
   document.getElementById('clearThemeSearch').addEventListener('click', () => {
-    search.value = ''; author.value = 'all'; groupByAuthor.checked = false; currentFilter = 'all'; updateFilters(); author.dispatchEvent(new Event('change')); search.focus();
+    search.value = ''; author.value = 'all'; currentFilter = 'all'; updateFilters(); author.dispatchEvent(new Event('change')); search.focus();
   });
   const cacheKey = 'lucily-opencore-catalog-v1';
   let cached;

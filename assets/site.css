@@ -266,6 +266,3 @@ html[lang="zh-Hans"] body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHe
 .opencore-grid .theme-tag { z-index: 2; }
 .opencore-library .hero .stat-num i { -webkit-text-fill-color: var(--accent-2); }
 @media (min-width: 851px) and (max-width: 1150px) { .nav { gap: 12px; padding-left: 20px; padding-right: 20px; } .nav-links { gap: 2px; } .nav-links a { padding: 8px 9px; } .subtext { display: none; } }
-
-.author-sort-toggle { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; white-space: nowrap; }
-.author-sort-toggle input { accent-color: var(--accent-2); width: 16px; height: 16px; cursor: pointer; }
