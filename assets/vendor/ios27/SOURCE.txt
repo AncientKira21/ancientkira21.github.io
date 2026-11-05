@@ -1,0 +1,2 @@
+Adapted material tokens from https://github.com/seunghan91/ios27-design-system
+Copyright 2026 Dcode Labs (Seunghan Kim). MIT.

@@ -1,0 +1,91 @@
+/* Liquid Aqua 2.0 by Jared White, adapted from user-supplied CodePen CSS.
+Source: https://codepen.io/editor/jaredcwhite/pen/019f9caf-09be-707b-89f7-b1964b77a003
+Public CodePen code: MIT; see LICENSE. Scoped to the two glass appearances. */
+@property --aqua-bg { syntax:"<color>"; inherits:false; initial-value:transparent; }
+[data-glass="true"] { --aqua-rim:-1px 0 0 #00000026,1px 0 0 #00000026,0 -1px 0 #00000011,0 1px 0 #00000011,inset 0 2px 2px -2px #ffffff80,inset 0 -2px 2px -2px #ffffffb3; }
+[data-glass="true"] :is(.nav,.settings-panel,.dropdown-menu,.theme-card,.quick-link,.search-wrap,.btn-download,.btn-view,.back-top,.chip,.dropdown-trigger,.settings-trigger,.settings-close,.nav-toggle,.appearance-choices button,.appearance-switch,.theme-switch,.slider-glass-thumb,.nav-glass-cursor) {
+ --aqua-bg:color-mix(in oklab,transparent,white 10%);
+ background:linear-gradient(to bottom,color-mix(in oklab,var(--aqua-bg),white 5%),var(--aqua-bg) 20%,var(--aqua-bg) 50%,color-mix(in oklab,var(--aqua-bg),white 6%));
+ border-color:transparent; box-shadow:var(--aqua-rim); backdrop-filter:saturate(150%) blur(6px); -webkit-backdrop-filter:saturate(150%) blur(6px); corner-shape:superellipse(1.1);
+ transition:--aqua-bg .2s ease-out,scale .2s ease-out;
+}
+[data-glass="true"][data-theme="light"] :is(.nav,.settings-panel,.dropdown-menu,.theme-card,.quick-link,.search-wrap,.btn-download,.btn-view,.back-top,.chip,.dropdown-trigger,.settings-trigger,.settings-close,.nav-toggle,.appearance-choices button,.appearance-switch,.theme-switch,.slider-glass-thumb,.nav-glass-cursor) {
+ --aqua-bg:color-mix(in oklab,transparent,white 65%);
+ background:linear-gradient(to bottom,color-mix(in oklab,var(--aqua-bg),white 35%),var(--aqua-bg) 20%,var(--aqua-bg) 50%,color-mix(in oklab,var(--aqua-bg),white 45%));
+}
+[data-glass="true"] :is(.settings-panel,.dropdown-menu) { --aqua-bg:color-mix(in srgb,var(--ios27-surface) 88%,transparent); backdrop-filter:blur(24px) saturate(150%); }
+[data-glass="true"] :is(.slider-glass-thumb,.btn-download,.chip.active) { background:linear-gradient(color-mix(in srgb,var(--accent-2) 15%,transparent),color-mix(in srgb,var(--accent-2) 15%,transparent)),linear-gradient(to bottom,#ffffff55,#ffffff22 50%,#ffffff44); color:var(--fg); }
+[data-glass="true"] :is(button,a.btn-download,a.btn-view,.chip):active { --aqua-bg:color-mix(in oklab,transparent,white 40%); scale:1.04; }
+[data-glass="true"] :is(.nav-glass-cursor,.slider-glass-thumb) { transition:transform .3s cubic-bezier(.2,.85,.25,1),width .3s,height .3s,scale .22s cubic-bezier(.2,1.4,.4,1); }
+[data-glass="true"] .nav-links.is-dragging .nav-glass-cursor { transition:none; }
+@media(prefers-reduced-motion:reduce) { [data-glass="true"] :is(button,a,.nav-glass-cursor,.slider-glass-thumb) { transition:none; scale:1; } }
+@media(prefers-reduced-transparency:reduce) { [data-glass="true"] :is(.nav,.settings-panel,.dropdown-menu,.theme-card,.quick-link,.search-wrap) { background:var(--ios27-surface); } }
+
+/* Jared White's rounded Aqua button material, with the site's accent dye. */
+[data-glass="true"] :is(.btn-download,.btn-view,button,.chip,.dropdown-trigger) {
+ border-radius:2rem; corner-shape:superellipse(1.1);
+ box-shadow:var(--aqua-rim); -webkit-tap-highlight-color:transparent;
+}
+[data-glass="true"] :is(.btn-download,.chip.active) {
+ --aqua-bg:color-mix(in oklab,transparent,var(--accent-2) 30%);
+ background:linear-gradient(to bottom,color-mix(in oklab,var(--aqua-bg),white 35%),var(--aqua-bg) 20%,var(--aqua-bg) 50%,color-mix(in oklab,var(--aqua-bg),white 45%));
+ box-shadow:var(--aqua-rim); border:0; color:var(--fg);
+}
+[data-glass="true"] :is(.btn-download,.chip.active):active { --aqua-bg:color-mix(in oklab,transparent,var(--accent-2) 60%); }
+[data-glass="true"] :is(.theme-card,.quick-link,.feature-card,.card,.settings-panel,.dropdown-menu) { border-radius:2rem; overflow:hidden; }
+[data-glass="true"] :is(.settings-trigger,.settings-close,.nav-toggle,.back-top) { border-radius:999px; corner-shape:round; }
+
+/* Keep transform transitions: replacing them with only color/scale caused snapping. */
+[data-glass="true"] :is(.theme-card,.quick-link,.btn-download,.btn-view,.chip,.settings-trigger,.appearance-choices button) {
+ transition:transform .32s cubic-bezier(.2,.8,.2,1),scale .22s ease,opacity .28s ease,box-shadow .32s ease,--aqua-bg .2s ease;
+}
+:root[data-glass="true"][data-theme] :is(.btn-download,.chip.active) {
+ --aqua-bg:color-mix(in oklab,var(--accent-2) 42%,transparent);
+ background:linear-gradient(to bottom,color-mix(in oklab,var(--aqua-bg),white 30%),var(--aqua-bg) 24%,var(--aqua-bg) 55%,color-mix(in oklab,var(--aqua-bg),white 22%));
+ box-shadow:var(--aqua-rim),0 5px 14px color-mix(in srgb,var(--accent-2) 20%,transparent); color:var(--fg);
+}
+:root[data-glass="true"][data-theme] :is(.theme-card,.quick-link) {
+ background:linear-gradient(145deg,color-mix(in srgb,var(--accent-2) 9%,transparent),transparent 65%),color-mix(in srgb,var(--ios27-surface) 62%,transparent);
+ box-shadow:var(--aqua-rim),inset 0 1px 2px #ffffff70,inset 0 -1px 2px #00000012,0 8px 24px #10152d12;
+}
+/* One entrance per card; nested section/card transforms previously compounded. */
+@media(prefers-reduced-motion:no-preference) {
+ [data-glass="true"] main > section:not(.hero):has(.theme-card,.quick-link) { animation:none; }
+ [data-glass="true"] :is(.theme-card,.quick-link) { animation-duration:.45s; animation-timing-function:cubic-bezier(.2,.8,.2,1); }
+}
+@media(prefers-reduced-motion:reduce) { [data-glass="true"] :is(.theme-card,.quick-link,.btn-download,.btn-view,.chip,.settings-trigger,.appearance-choices button) { transition:none; } }
+
+/* Preserve Aqua highlights over the full accent gradient. */
+:root[data-glass="true"][data-theme] :is(.btn-download,.chip.active,.slider-glass-thumb) {
+ background:linear-gradient(to bottom,#ffffff55,transparent 26%,transparent 62%,#ffffff33),linear-gradient(115deg,color-mix(in srgb,var(--accent) 58%,transparent),color-mix(in srgb,var(--accent-2) 48%,transparent) 48%,color-mix(in srgb,var(--accent-3) 58%,transparent));
+}
+:root[data-glass="true"][data-theme] :is(.theme-card,.quick-link) {
+ background:linear-gradient(to bottom,#ffffff18,transparent 30%,transparent 74%,#ffffff12),linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,transparent),color-mix(in srgb,var(--accent-2) 7%,transparent) 48%,color-mix(in srgb,var(--accent-3) 10%,transparent)),color-mix(in srgb,var(--ios27-surface) 62%,transparent);
+}
+
+/* Content cards keep neutral glass; accent gradients belong to controls. */
+:root[data-glass="true"][data-theme] :is(.theme-card,.quick-link) {
+ background:linear-gradient(to bottom,#ffffff18,transparent 30%,transparent 74%,#ffffff12),color-mix(in srgb,var(--ios27-surface) 62%,transparent);
+}
+
+/* The navigation selection is clear Aqua glass, without accent dye. */
+:root[data-glass="true"][data-theme] .nav-glass-cursor {
+ background:linear-gradient(to bottom,color-mix(in srgb,var(--ios27-surface) 78%,transparent),color-mix(in srgb,var(--ios27-surface) 50%,transparent) 24%,color-mix(in srgb,var(--ios27-surface) 50%,transparent) 55%,color-mix(in srgb,var(--ios27-surface) 82%,transparent));
+ box-shadow:var(--aqua-rim);
+}
+
+/* Motion from ios27-design-system animations.json: gentle morph + snappy tab. */
+[data-glass="true"] .nav-glass-cursor {
+ transform-origin:center;
+ transition:transform .45s cubic-bezier(.34,1.56,.64,1),width .45s cubic-bezier(.34,1.56,.64,1),height .35s cubic-bezier(.25,.46,.45,.94),scale .35s cubic-bezier(.34,1.4,.64,1);
+}
+/* Position follows the finger directly; expansion must still animate. */
+[data-glass="true"] .nav-links.is-dragging .nav-glass-cursor {
+ transition:scale .35s cubic-bezier(.34,1.4,.64,1),width .35s cubic-bezier(.25,.46,.45,.94),height .35s cubic-bezier(.25,.46,.45,.94);
+}
+@media(prefers-reduced-motion:reduce) {
+ [data-glass="true"] .nav-glass-cursor,[data-glass="true"] .nav-links.is-dragging .nav-glass-cursor { transition:none; }
+}
+
+:root[data-glass="true"][data-theme] .nav-links a[aria-current="page"],
+:root[data-glass="true"][data-theme] .nav-links a.active { background:transparent; }

@@ -13,6 +13,10 @@
 <link rel="icon" type="image/svg+xml" href="../assets/lucily.svg?v=38291156e2c6">
 <script src="../assets/theme.js?v=3885c4727499"></script>
 <script data-goatcounter="https://ancientkira.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="stylesheet" href="../assets/preferences.css?v=67405922f052">
+<link rel="stylesheet" href="../assets/vendor/ios27/materials.css?v=f5c7cf90cf4b">
+<link rel="stylesheet" href="../assets/vendor/liquid-aqua/aqua.css?v=f7698746b3d8">
+<script src="../assets/appearance.js?v=5408c986b4cc"></script>
 </head>
 <body><div class="bg-ambient" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div><div class="grid-overlay" aria-hidden="true"></div><div class="page-shell"><header><nav class="nav" aria-label="Main navigation">
 <div class="brand-container"><a class="logo" href="https://ancientkira21.github.io/"><span class="logo-mark" aria-hidden="true"><svg class="lucily-fa-svg" viewBox="6 8 52 48" aria-hidden="true"><svg x="8" y="13" width="48" height="40" viewBox="0 0 640 512" fill="white"><path d="M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z" /></svg><svg x="17" y="17" width="30" height="30" viewBox="0 0 576 512" fill="white"><path d="M413.5 237.5c-28.2 4.8-58.2-3.6-80-25.4l-38.1-38.1C280.4 159 272 138.8 272 117.6V105.5L192.3 62c-5.3-2.9-8.6-8.6-8.3-14.7s3.9-11.5 9.5-14l47.2-21C259.1 4.2 279 0 299.2 0h18.1c36.7 0 72 14 98.7 39.1l44.6 42c24.2 22.8 33.2 55.7 26.6 86L503 183l8-8c9.4-9.4 24.6-9.4 33.9 0l24 24c9.4 9.4 9.4 24.6 0 33.9l-88 88c-9.4 9.4-24.6 9.4-33.9 0l-24-24c-9.4-9.4-9.4-24.6 0-33.9l8-8-17.5-17.5zM27.4 377.1L260.9 182.6c3.5 4.9 7.5 9.6 11.8 14l38.1 38.1c6 6 12.4 11.2 19.2 15.7L134.9 484.6c-14.5 17.4-36 27.4-58.6 27.4C34.1 512 0 477.8 0 435.7c0-22.6 10.1-44.1 27.4-58.6z" /></svg></svg></span><span>Lucily</span></a><a class="subtext" href="https://ancientkira21.github.io/about/">by Ancient Kira</a></div>
@@ -22,11 +26,30 @@
         <a href="https://ancientkira21.github.io/projects/">Projects</a>
         <a href="https://ancientkira21.github.io/about/">About</a>
 <a href="/opencore-themes" class="active" aria-current="page">OpenCore Themes</a>
-      </div><div class="language-control"><i class="fa-solid fa-globe" aria-hidden="true"></i><select class="language-select" aria-label="Language" data-no-translate><option value="en">English</option><option value="es">Español</option><option value="zh-Hans">简体中文</option><option value="my">မြန်မာ</option><option value="ja">日本語</option></select></div>
-<div class="theme-switch" data-mode="system">
+      </div>
+<button class="settings-trigger" type="button" aria-label="Settings" aria-haspopup="dialog" aria-controls="siteSettings"><i class="fa-solid fa-gear" aria-hidden="true"></i></button></nav></header>
+<dialog id="siteSettings" class="settings-panel" aria-labelledby="settingsTitle">
+  <div class="settings-heading"><h2 id="settingsTitle">Settings</h2><button class="settings-close" type="button" aria-label="Close settings"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div>
+  <section class="settings-section" aria-labelledby="appearanceTitle">
+    <h3 id="appearanceTitle"><i class="fa-solid fa-palette" aria-hidden="true"></i> Appearance</h3>
+    <div class="appearance-switch" data-appearance="enchanted"><input id="appearanceSlider" type="range" min="0" max="3" step="1" value="0" aria-label="Appearance" aria-valuetext="Enchanted Chris"><div aria-hidden="true"><span data-appearance-label="enchanted">Enchanted Chris</span><span data-appearance-label="chrisglass">ChrisGlass</span><span data-appearance-label="material">Material Chris</span><span data-appearance-label="materialglass">Material ChrisGlass</span></div></div>
+    <div class="appearance-choices" aria-label="Choose appearance">
+      <button type="button" data-appearance-choice="enchanted" aria-pressed="true"><span class="appearance-sample sample-enchanted" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span><strong data-no-translate>Enchanted Chris</strong><span class="choice-count" data-vote-count="enchanted" data-no-translate>—</span></button>
+      <button type="button" data-appearance-choice="chrisglass" aria-pressed="false"><span class="appearance-sample sample-glass" aria-hidden="true"><i class="fa-solid fa-droplet"></i></span><strong data-no-translate>ChrisGlass</strong><span class="choice-count" data-vote-count="chrisglass" data-no-translate>—</span></button>
+      <button type="button" data-appearance-choice="material" aria-pressed="false"><span class="appearance-sample sample-material" aria-hidden="true"><i class="fa-solid fa-palette"></i></span><strong data-no-translate>Material Chris</strong><span class="choice-count" data-vote-count="material" data-no-translate>—</span></button>
+      <button type="button" data-appearance-choice="materialglass" aria-pressed="false"><span class="appearance-sample sample-materialglass" aria-hidden="true"><i class="fa-solid fa-droplet"></i></span><strong data-no-translate>Material ChrisGlass</strong><span class="choice-count" data-vote-count="materialglass" data-no-translate>—</span></button>
+    </div>
+    <p class="settings-note material-accent-note">Uses the accent exposed by your browser, which may differ from its toolbar color.</p>
+    <p class="settings-note" id="appearanceCountStatus" role="status">Community counts are unavailable.</p>
+  </section>
+  <section class="settings-section" aria-labelledby="themeTitle"><h3 id="themeTitle"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i> Theme</h3><div class="theme-switch" data-mode="system">
   <input type="range" min="0" max="2" step="1" value="0" aria-label="Color theme: System, Light, Dark" aria-valuetext="System">
   <div class="theme-switch-labels" aria-hidden="true"><span title="System"><i class="fa-solid fa-desktop"></i></span><span><i class="fa-solid fa-sun"></i></span><span><i class="fa-solid fa-moon"></i></span></div>
-</div></nav></header><main class="opencore-library">
+</div><div class="theme-mode-text" aria-hidden="true"><span>System</span><span>Light</span><span>Dark</span></div></section>
+  <section class="settings-section" aria-labelledby="languageTitle"><h3 id="languageTitle"><i class="fa-solid fa-globe" aria-hidden="true"></i> Language</h3><div class="language-control"><i class="fa-solid fa-globe" aria-hidden="true"></i><select class="language-select" aria-label="Language" data-no-translate><option value="en">English</option><option value="es">Español</option><option value="zh-Hans">简体中文</option><option value="my">မြန်မာ</option><option value="ja">日本語</option></select></div></section>
+  <p class="settings-credits">Glass materials adapted from <a href="https://github.com/seunghan91/ios27-design-system">iOS 27 Design System by Dcode Labs (Seunghan Kim)</a> and <a href="https://codepen.io/editor/jaredcwhite/pen/019f9caf-09be-707b-89f7-b1964b77a003">Liquid Aqua 2.0 by Jared White</a> (MIT).</p>
+</dialog>
+<main class="opencore-library">
 <section class="hero">
   <div class="badge"><span class="dot"></span> Themes for OpenCore 0.7.0+ · Updated May 2026</div>
   <h1>Beautiful <span class="gradient">Boot Themes</span><br>for OpenCore</h1>
@@ -75,12 +98,7 @@
 <p>Additional sources: <a href="https://rockjesus.cn/oc/" target="_blank" rel="noopener">RockJesus.cn</a>, <a href="https://bbs.pcbeta.com/" target="_blank" rel="noopener">PCBeta community</a>, and <a href="https://github.com/btwise" target="_blank" rel="noopener">btwise</a>. The btwise collections are forks of <a href="https://github.com/pkdesign/OpenCanopyIcons" target="_blank" rel="noopener">pkdesign’s OpenCanopyIcons</a> and <a href="https://github.com/Hackintoshlifeit/opencanopy-themes" target="_blank" rel="noopener">Hackintoshlifeit’s OpenCanopy themes</a>; original credits and licenses apply.</p>
       <p>This site is made with GitHub Pages.</p>
       <p>Licensed under Apache 2.0.</p>
-    </footer></div><script>
-const menuToggle = document.querySelector('.nav-toggle');
-menuToggle.addEventListener('click', () => {
-  const expanded = menuToggle.getAttribute('aria-expanded') !== 'true';
-  menuToggle.setAttribute('aria-expanded', String(expanded));
-  document.getElementById('navLinks').classList.toggle('open', expanded);
-});
-</script><button class="back-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
-<script src="../assets/opencore-catalog.js?v=df1ab14c1233"></script><script src="../assets/opencore-library.js?v=c12e04716101"></script><script src="../assets/back-top.js?v=3cf79f232ce6"></script><script src="../assets/dropdowns.js?v=eca017ac77ee"></script><script src="../assets/language-data.js?v=d932fd994dd2"></script><script src="../assets/languages.js?v=6b2d0366aa7f"></script></body></html>
+    </footer></div><button class="back-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+<script src="../assets/opencore-catalog.js?v=df1ab14c1233"></script><script src="../assets/opencore-library.js?v=c12e04716101"></script><script src="../assets/back-top.js?v=3cf79f232ce6"></script><script src="../assets/dropdowns.js?v=07a56c7e31d6"></script><script src="../assets/language-data.js?v=7f11fa7c9061"></script><script src="../assets/languages.js?v=6b2d0366aa7f"></script><script src="../assets/preferences-config.js?v=6e62d2f5825b"></script>
+<script src="../assets/preferences.js?v=9d292d00ba4d"></script>
+</body></html>

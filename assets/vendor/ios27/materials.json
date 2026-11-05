@@ -1,0 +1,455 @@
+{
+  "_reference": {
+    "source": "MEASURED from Apple's official iOS and iPadOS 27 UI Kit for Figma (community file 1651309003795292092, kit version 27.0.2, 2026-07-16) via the Figma REST API on 2026-07-29. Supplemented by the WWDC 2026 keynote and Platforms State of the Union (2026-06-08).",
+    "kitVersion": "27.0.2",
+    "measured": "2026-07-29",
+    "changes": "../../../docs/whats-new-in-ios27.md",
+    "note": "Values tagged _measured come from the kit's own layers. Apple publishes no numeric spec for the Liquid Glass material itself — the kit approximates it in Figma, and this file transcribes that approximation for the web. On Apple platforms use the SwiftUI glassEffect API.",
+    "_assetPolicy": "Measurements are documented here; Apple's kit file, artwork, and vector data are not redistributed.",
+    "_figmaGlassEffect": "The kit's glass surfaces carry a Figma GLASS effect whose parameters the REST API does not expose. What IS exposed — fills, drop shadows, inner shadows, background blurs, corner radii — is captured below. The CSS reproduction is therefore close but not identical.",
+    "_kitIsAnApproximation": "The kit reproduces Liquid Glass in Figma for design work. Whether its construction — the spread-shadow ring plus two offset inner shadows — matches how the system actually composites the material at runtime is unverified. Treat these as the kit's values, which is what a designer hands you, not as the system's internal parameters."
+  },
+  "transparency": {
+    "_new": "iOS 27",
+    "_description": "iOS 27 replaces the binary Reduce Transparency toggle with a system-wide slider running from ultra clear to fully tinted. Apps inherit the resulting appearance; there is no per-app override. On the web, model it as one custom property that scales glass opacity and blur together.",
+    "_cssVariable": "--ios27-glass-transparency",
+    "_range": {
+      "min": 0,
+      "max": 1,
+      "default": 0.5
+    },
+    "_semantics": "0 = fully tinted (opaque, closest to pre-Liquid-Glass chrome). 1 = ultra clear (maximum see-through).",
+    "presets": {
+      "fullyTinted": {
+        "value": 0,
+        "opacityScale": 1.6,
+        "blurScale": 0.5,
+        "note": "Opaque chrome. Nearest equivalent to the iOS 26 Reduce Transparency look, without the flattening."
+      },
+      "tinted": {
+        "value": 0.25,
+        "opacityScale": 1.325,
+        "blurScale": 0.75
+      },
+      "default": {
+        "value": 0.5,
+        "opacityScale": 1.05,
+        "blurScale": 1.0,
+        "note": "System default. Already more diffused than the iOS 26 default."
+      },
+      "clear": {
+        "value": 0.75,
+        "opacityScale": 0.775,
+        "blurScale": 1.15
+      },
+      "ultraClear": {
+        "value": 1,
+        "opacityScale": 0.5,
+        "blurScale": 1.3,
+        "note": "Maximum transparency. Verify foreground contrast per surface."
+      }
+    },
+    "_accessibility": "Accessibility wins, and Apple documents this: per the iPhone user guide, if Reduce Transparency or Increase Contrast is on, you must turn it off before the Liquid Glass appearance can be changed. The web reproduction matches — every preset selector is repeated inside the prefers-reduced-transparency block at equal specificity but later in source order, so the accessibility value wins even when a preset class sits on the element.",
+    "_derive": {
+      "_description": "The two scale factors are derived from the slider value in CSS so --ios27-glass-transparency is the single source of truth. NOT measured — the slider is a runtime system setting with no kit representation, so this curve is a web-side model. Validated against the native material: at t=0.5 it yields alpha 0.735 for regular glass, and a SwiftUI .glassEffect(.regular) screenshot over known colours on iOS 26.5 solves to 0.729 as a channel mean (0.8% off).",
+      "opacityScale": {
+        "base": 1.6,
+        "slope": -1.1
+      },
+      "blurScale": {
+        "base": 0.5,
+        "slope": 0.8
+      }
+    },
+    "_location": "Settings > Appearance > Liquid Glass. A continuous slider with a live preview. It supersedes the Clear / Tinted selector that iOS 26.1 put under Display & Brightness > Liquid Glass.",
+    "_appApi": "No public API or SwiftUI environment value for reading the slider is documented. Apps using system materials inherit the appearance. Do not assume a readable value exists."
+  },
+  "liquidGlass": {
+    "_disclaimer": "Numeric values (opacity/blur/frost/depth/splay/shadow/edge/specular) APPROXIMATE the native material for web/CSS rendering. Apple publishes no numeric values for the Liquid Glass material.",
+    "_placement": "Liquid Glass is a floating navigation/controls layer ABOVE content. Use for toolbars, tab bars, floating controls, sheet chrome. Do NOT apply to content backgrounds, large areas, or stack glass on glass.",
+    "_variants": {
+      "regular": "Default functional/navigation layer.",
+      "clear": "More transparent — ONLY over media-rich/colorful content with a high-contrast foreground.",
+      "identity": "No glass (conditional disable without layout change), e.g. glassEffect(isEnabled ? .regular : .identity)."
+    },
+    "_ios27Changes": [
+      "Kit change log 27.0.0: updated appearance of all liquid glass components; updated soft and hard Scroll Edge Effects; the 'State' property of Liquid Glass - Regular became a boolean named 'Prominent'.",
+      "Existing apps inherit the material changes on iOS 27 without recompiling."
+    ],
+    "regular": {
+      "_measured": "Liquid Glass - Regular - Large / Medium / Small in the kit.",
+      "_note": "Large and Medium measured identical in 27.0.2 — same fills, shadows, and 34pt radius. They differ only by usage context.",
+      "large": {
+        "cornerRadius": 34,
+        "light": {
+          "bg": {
+            "hex": "#ffffff",
+            "a": 0.7
+          },
+          "overlay": {
+            "hex": "#bfbfbf",
+            "a": 0.1
+          },
+          "shadow": {
+            "blur": 48,
+            "offsetY": 8,
+            "hex": "#000000",
+            "a": 0.25
+          }
+        },
+        "dark": {
+          "bg": {
+            "hex": "#1a1a1a",
+            "a": 0.7
+          },
+          "overlay2": {
+            "hex": "#1a1a1a",
+            "a": 0.9
+          },
+          "overlay3": {
+            "hex": "#1a1a1a",
+            "a": 1.0
+          },
+          "shadow": {
+            "blur": 48,
+            "offsetY": 8,
+            "hex": "#000000",
+            "a": 0.45
+          }
+        }
+      },
+      "medium": {
+        "cornerRadius": 34,
+        "light": {
+          "bg": {
+            "hex": "#ffffff",
+            "a": 0.7
+          },
+          "overlay": {
+            "hex": "#bfbfbf",
+            "a": 0.1
+          },
+          "shadow": {
+            "blur": 48,
+            "offsetY": 8,
+            "hex": "#000000",
+            "a": 0.25
+          }
+        },
+        "dark": {
+          "bg": {
+            "hex": "#1a1a1a",
+            "a": 0.7
+          },
+          "shadow": {
+            "blur": 48,
+            "offsetY": 8,
+            "hex": "#000000",
+            "a": 0.45
+          }
+        }
+      },
+      "small": {
+        "_size": 48,
+        "cornerRadius": 100,
+        "cornerRadiusActive": 1000,
+        "_states": "Measured axes: Mode x Active x Prominent.",
+        "light": {
+          "bg": {
+            "hex": "#747480",
+            "a": 0.08
+          },
+          "shadow": {
+            "blur": 15,
+            "offsetY": 8,
+            "hex": "#000000",
+            "a": 0.02
+          }
+        },
+        "dark": {
+          "bg": {
+            "hex": "#767680",
+            "a": 0.12
+          },
+          "shadow": {
+            "blur": 15,
+            "offsetY": 8,
+            "hex": "#000000",
+            "a": 0.04
+          }
+        },
+        "activeDark": {
+          "bg": {
+            "hex": "#999999",
+            "a": 0.17
+          }
+        },
+        "prominent": {
+          "_measured": true,
+          "_description": "Active + Prominent adds an opaque white backing plus a tint layer composited with LINEAR_BURN.",
+          "backing": {
+            "hex": "#ffffff",
+            "opacity": 0.94
+          },
+          "tint": {
+            "hex": "#0088ff",
+            "blendMode": "LINEAR_BURN"
+          },
+          "_api": "There is NO Glass.prominent variant in SwiftUI. Glass exposes regular / clear / identity. What the kit calls Prominent corresponds to the .glassProminent button style, which has existed since iOS 26.0 — it is not new in iOS 27. What changed in 27 is the kit property: Liquid Glass - Regular's \"State\" became a boolean named \"Prominent\"."
+        }
+      }
+    },
+    "clear": {
+      "_measured": "Liquid Glass - Clear in the kit.",
+      "_usage": "Only over media-rich or colorful content; add a scrim if legibility is at risk.",
+      "cornerRadius": 23,
+      "base": {
+        "hex": "#101010",
+        "a": 1.0
+      },
+      "overlay": {
+        "hex": "#ffffff",
+        "a": 0.04
+      },
+      "shadow": {
+        "blur": 15,
+        "offsetY": 8,
+        "hex": "#000000",
+        "a": 0.02
+      }
+    },
+    "rim": {
+      "_measured": true,
+      "_description": "The outline around a glass surface. Measured as zero-blur DROP_SHADOWs with positive spread — a light grey ring, NOT the dark inset border previously assumed here.",
+      "spread": 0.5,
+      "sideOffset": 1.25,
+      "sideSpread": -0.75,
+      "light": {
+        "hex": "#dbdbdb"
+      },
+      "dark": {
+        "hex": "#a6a6a6"
+      },
+      "smallLight": {
+        "hex": "#ebebeb"
+      },
+      "smallDark": {
+        "hex": "#e6e6e6"
+      }
+    },
+    "innerShadow": {
+      "_measured": true,
+      "_description": "Top and bottom inner shadows on the Glass Effect layer. This is what reads as the lit rim on device — implemented as dark inner shadows offset beyond the shape, not as a white highlight.",
+      "blur": 10,
+      "offsetY": 40,
+      "spread": -40,
+      "_note": "Applied twice, at +40 and -40 on Y.",
+      "light": {
+        "hex": "#282828"
+      },
+      "dark": {
+        "hex": "#1a1a1a"
+      },
+      "smallExtra": {
+        "blur": 30,
+        "offsetY": 40,
+        "spread": -40,
+        "hex": "#e6e6e6",
+        "_note": "Small glass adds a third, lighter inner shadow from below."
+      }
+    },
+    "_swiftuiApi": {
+      "material": "glassEffect(_:in:) — defaults to Glass.regular",
+      "variants": [
+        "Glass.regular",
+        "Glass.clear",
+        "Glass.identity"
+      ],
+      "prominentButton": ".buttonStyle(.glassProminent) — iOS 26.0+, not an iOS 27 addition",
+      "_note": "Prominence is expressed through component styles and roles, not through a material variant."
+    }
+  },
+  "backgroundMaterials": {
+    "_measured": "_Materials/Mode Options component set in the kit. Light and Dark measured separately; the IC-Light / IC-Dark variants measured identical to their non-IC counterparts, consistent with increased contrast being retired as an authoring mode.",
+    "_note": "Light materials are white-based, dark materials are black-based. Rendering the light values on a dark page produces a conspicuous light panel — always emit both.",
+    "chrome": {
+      "blurRadius": 50,
+      "light": {
+        "hex": "#ffffff",
+        "a": 0.75
+      },
+      "dark": {
+        "hex": "#1c1c1c",
+        "a": 0.9
+      }
+    },
+    "thick": {
+      "blurRadius": 100,
+      "light": {
+        "hex": "#ffffff",
+        "a": 0.84
+      },
+      "dark": {
+        "hex": "#000000",
+        "a": 0.6
+      },
+      "lightOverlay": {
+        "hex": "#ffffff",
+        "a": 0.34
+      }
+    },
+    "regular": {
+      "blurRadius": 100,
+      "light": {
+        "hex": "#ffffff",
+        "a": 0.6
+      },
+      "dark": {
+        "hex": "#000000",
+        "a": 0.41
+      },
+      "lightOverlay": {
+        "hex": "#ffffff",
+        "a": 0.25
+      }
+    },
+    "thin": {
+      "blurRadius": 100,
+      "light": {
+        "hex": "#ffffff",
+        "a": 0.4
+      },
+      "dark": {
+        "hex": "#000000",
+        "a": 0.26
+      },
+      "lightOverlay": {
+        "hex": "#ffffff",
+        "a": 0.05
+      }
+    },
+    "ultrathin": {
+      "blurRadius": 100,
+      "light": {
+        "hex": "#ffffff",
+        "a": 0.07
+      },
+      "dark": {
+        "hex": "#000000",
+        "a": 0.02
+      },
+      "lightOverlay": {
+        "hex": "#ffffff",
+        "a": 0.03
+      }
+    }
+  },
+  "scrollEdgeEffect": {
+    "_measured": "Scroll Edge Effect - Soft / Hard component sets in the kit.",
+    "_api": "SwiftUI scrollEdgeEffectStyle(_:for:) with .soft or .hard and an edge.",
+    "soft": {
+      "containerBlur": 10,
+      "layerBlur": 100,
+      "layerOpacity": 0.9,
+      "mask": "linear-gradient",
+      "_note": "Two stacked background blurs: a 10 radius on the container and a 100 radius layer masked by a linear gradient."
+    },
+    "hard": {
+      "blur": 6,
+      "light": {
+        "bg": {
+          "hex": "#ffffff",
+          "a": 0.85
+        },
+        "border": {
+          "hex": "#000000",
+          "a": 0.05,
+          "width": 1
+        }
+      },
+      "dark": {
+        "bg": {
+          "hex": "#000000",
+          "a": 0.55
+        },
+        "border": {
+          "hex": "#000000",
+          "a": 0.1,
+          "width": 1
+        }
+      }
+    },
+    "directions": [
+      "top",
+      "bottom",
+      "leading",
+      "trailing"
+    ]
+  },
+  "uniformToolbar": {
+    "_new": "iOS 27",
+    "_description": "When content scrolls beneath a floating bar, iOS 27 draws a single uniform bar across the top edge instead of letting content show through unevenly. Standard toolbars get this automatically; custom bars tune it through the existing scroll edge effect APIs.",
+    "_trigger": "content scrolled under the top bar",
+    "light": {
+      "bg": {
+        "hex": "#ffffff",
+        "a": 0.85
+      }
+    },
+    "dark": {
+      "bg": {
+        "hex": "#000000",
+        "a": 0.55
+      }
+    },
+    "edge": {
+      "width": 1,
+      "light": {
+        "hex": "#000000",
+        "a": 0.05
+      },
+      "dark": {
+        "hex": "#000000",
+        "a": 0.1
+      }
+    },
+    "transition": {
+      "duration": 0.25,
+      "easing": "cubic-bezier(0.4, 0.0, 0.2, 1.0)"
+    },
+    "blurRadius": 6,
+    "_measured": "Modelled on the kit's hard Scroll Edge Effect, which is what a standard toolbar shows once content scrolls under it."
+  },
+  "sidebar": {
+    "_ios27Changes": "Kit change log 27.0.0: sidebars extended edge to edge; background material updated; sidebar buttons changed to Liquid Glass style with adjusted spacing; selected state updated; symbols tinted.",
+    "edgeToEdge": true,
+    "coloredIcons": true,
+    "light": {
+      "bg": {
+        "hex": "#f7f7f7",
+        "a": 0.8
+      },
+      "blurRadius": 40
+    },
+    "dark": {
+      "bg": {
+        "hex": "#000000",
+        "a": 0.8
+      },
+      "blurRadius": 40
+    }
+  },
+  "webApproximation": {
+    "_description": "Values the kit does not expose (Figma's GLASS effect hides its blur radius from the REST API). Derived from the native material, not guessed: a SwiftUI .glassEffect() panel was screenshotted over known colour bands on the iOS 26.5 simulator and the black|white boundary profile inside the panel was least-squares fitted to an erf step response. regular -> sigma 5.40pt, clear -> sigma 1.37pt (rmse 0.017/0.021). A control fit outside the panel returns sigma 0.17pt, confirming the method. CSS blur(L) takes L AS the standard deviation (filter-effects-1), so the radii here are sigma / blurScale(0.5) = sigma / 0.9. Large and medium share a value because the kit measures them identical and the native variant covers both.",
+    "backdropBlur": {
+      "large": 6.0,
+      "medium": 6.0,
+      "small": 3.6,
+      "clear": 1.6
+    },
+    "_note": "History, so this is not re-litigated: 18/15/9/7 was a guess; briefly raised to 40/32/16/12 on the strength of web reproductions, which was wrong twice over — those reproductions mostly reproduce the CLEAR variant while our default maps to REGULAR, and the sigma-to-CSS conversion was off by 2x (CSS blur(L) is sigma = L, not L/2). Native is far less blurred than either guess.",
+    "backdropSaturate": 1.8,
+    "_saturateNote": "Apple's material boosts chroma; blur alone renders as a flat wash. Not a plain saturate() natively — solving the native screenshot per band gives ~0.8 on neutral grey, ~1.0 on pure red, ~1.9 on cyan and ~2.4 on magenta, i.e. a chroma-dependent vibrancy a single multiplier cannot express. 1.8 approximates the saturated end, which is where the effect is visible.",
+    "_alphaNote": "The measured bg.a of 0.7 is right FOR CSS. Solving the native screenshot on sRGB codes gives alpha 0.718 / 0.729 / 0.741 per channel, mean 0.729 (the veil is faintly warm); solving in linear light gives 0.49. CSS composites background-color over the backdrop in gamma-encoded sRGB, so the sRGB-code figure is the one that reproduces the native appearance — rgba(255,255,255,0.718) over black yields 183 against the 178 observed. 0.49 would yield 125. The linear-light number describes what the native material does internally and is not the value to ship."
+  }
+}

@@ -905,5 +905,77 @@ window.siteTranslations = {
     "zh-Hans": "同时按作者分组",
     "my": "ဖန်တီးသူအလိုက်လည်း စီရန်",
     "ja": "作者ごとにも並べる"
+  },
+  "Settings": {
+    "es": "Ajustes",
+    "zh-Hans": "设置",
+    "my": "ဆက်တင်များ",
+    "ja": "設定"
+  },
+  "Close settings": {
+    "es": "Cerrar ajustes",
+    "zh-Hans": "关闭设置",
+    "my": "ဆက်တင်များ ပိတ်ရန်",
+    "ja": "設定を閉じる"
+  },
+  "Appearance": {
+    "es": "Apariencia",
+    "zh-Hans": "外观",
+    "my": "အသွင်အပြင်",
+    "ja": "外観"
+  },
+  "Theme": {
+    "es": "Tema",
+    "zh-Hans": "主题",
+    "my": "အပြင်အဆင်",
+    "ja": "テーマ"
+  },
+  "Choose appearance": {
+    "es": "Elegir apariencia",
+    "zh-Hans": "选择外观",
+    "my": "အသွင်အပြင် ရွေးရန်",
+    "ja": "外観を選ぶ"
+  },
+  "Community counts are unavailable.": {
+    "es": "Los recuentos de la comunidad no están disponibles.",
+    "zh-Hans": "暂时无法查看大家的选择。",
+    "my": "အများရဲ့ ရွေးချယ်မှု အရေအတွက်ကို လောလောဆယ် မကြည့်နိုင်ပါ။",
+    "ja": "みんなの選択数は現在表示できません。"
+  },
+  "Community counts are unavailable. Your appearance is saved.": {
+    "es": "No se pueden cargar los recuentos. Tu apariencia está guardada.",
+    "zh-Hans": "暂时无法加载统计，你的外观设置已保存。",
+    "my": "အရေအတွက် မကြည့်နိုင်ပေမဲ့ သင့်အသွင်အပြင်ကို သိမ်းထားပါပြီ။",
+    "ja": "選択数を読み込めません。外観設定は保存しました。"
+  },
+  "Community choices · one saved choice per browser.": {
+    "es": "Elecciones de la comunidad · una por navegador.",
+    "zh-Hans": "大家的选择 · 每个浏览器保留一个选择。",
+    "my": "အများရဲ့ ရွေးချယ်မှုများ · ဘရောက်ဇာတစ်ခုလျှင် တစ်ခုသာ သိမ်းပါသည်။",
+    "ja": "みんなの選択 · ブラウザごとに1つ保存されます。"
+  },
+  "Allow browser storage to save your community choice.": {
+    "es": "Permite el almacenamiento del navegador para guardar tu elección.",
+    "zh-Hans": "请允许浏览器存储来保存你的选择。",
+    "my": "သင့်ရွေးချယ်မှု သိမ်းဖို့ ဘရောက်ဇာမှာ ဒေတာသိမ်းခွင့် ပြုပါ။",
+    "ja": "選択を保存するにはブラウザのストレージを許可してください。"
+  },
+  "ChrisGlass uses": {
+    "es": "ChrisGlass usa",
+    "zh-Hans": "ChrisGlass 使用",
+    "my": "ChrisGlass တွင် သုံးထားသည်မှာ",
+    "ja": "ChrisGlassに使用："
+  },
+  "reference.": {
+    "es": "como referencia.",
+    "zh-Hans": "参考。",
+    "my": "ကိုးကားချက်။",
+    "ja": "を参考にしています。"
+  },
+  "Uses the system accent when the browser exposes it; otherwise blue.": {
+    "es": "Usa el color del sistema cuando el navegador lo permite; si no, usa azul.",
+    "zh-Hans": "浏览器允许时使用系统强调色，否则使用蓝色。",
+    "my": "ဘရောက်ဇာက ခွင့်ပြုရင် စနစ်အရောင်ကို သုံးပါတယ်။ မရရင် အပြာရောင် သုံးပါတယ်။",
+    "ja": "ブラウザが対応していればシステムのアクセント色を使い、それ以外は青になります。"
   }
 };

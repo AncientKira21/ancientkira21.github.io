@@ -8,11 +8,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;600&amp;family=Noto+Sans+Myanmar:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="assets/style.css">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/style.css?v=86733beefe0c">
+<link rel="stylesheet" href="assets/site.css?v=92cb432dac5b">
 <link rel="icon" type="image/svg+xml" href="assets/lucily.svg">
-<script src="assets/theme.js"></script>
+<script src="assets/theme.js?v=3885c4727499"></script>
 <script data-goatcounter="https://ancientkira.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="stylesheet" href="assets/preferences.css?v=67405922f052">
+<link rel="stylesheet" href="assets/vendor/ios27/materials.css?v=f5c7cf90cf4b">
+<link rel="stylesheet" href="assets/vendor/liquid-aqua/aqua.css?v=f7698746b3d8">
+<script src="assets/appearance.js?v=5408c986b4cc"></script>
 </head>
 <body>
 <div class="bg-ambient" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
@@ -26,11 +30,30 @@
         <a href="/projects/">Projects</a>
         <a href="/about/">About</a>
         <a href="/opencore-themes">OpenCore Themes</a>
-      </div><div class="language-control"><i class="fa-solid fa-globe" aria-hidden="true"></i><select class="language-select" aria-label="Language" data-no-translate><option value="en">English</option><option value="es">Español</option><option value="zh-Hans">简体中文</option><option value="my">မြန်မာ</option><option value="ja">日本語</option></select></div>
-<div class="theme-switch" data-mode="system">
+      </div>
+<button class="settings-trigger" type="button" aria-label="Settings" aria-haspopup="dialog" aria-controls="siteSettings"><i class="fa-solid fa-gear" aria-hidden="true"></i></button></nav></header>
+<dialog id="siteSettings" class="settings-panel" aria-labelledby="settingsTitle">
+  <div class="settings-heading"><h2 id="settingsTitle">Settings</h2><button class="settings-close" type="button" aria-label="Close settings"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div>
+  <section class="settings-section" aria-labelledby="appearanceTitle">
+    <h3 id="appearanceTitle"><i class="fa-solid fa-palette" aria-hidden="true"></i> Appearance</h3>
+    <div class="appearance-switch" data-appearance="enchanted"><input id="appearanceSlider" type="range" min="0" max="3" step="1" value="0" aria-label="Appearance" aria-valuetext="Enchanted Chris"><div aria-hidden="true"><span data-appearance-label="enchanted">Enchanted Chris</span><span data-appearance-label="chrisglass">ChrisGlass</span><span data-appearance-label="material">Material Chris</span><span data-appearance-label="materialglass">Material ChrisGlass</span></div></div>
+    <div class="appearance-choices" aria-label="Choose appearance">
+      <button type="button" data-appearance-choice="enchanted" aria-pressed="true"><span class="appearance-sample sample-enchanted" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span><strong data-no-translate>Enchanted Chris</strong><span class="choice-count" data-vote-count="enchanted" data-no-translate>—</span></button>
+      <button type="button" data-appearance-choice="chrisglass" aria-pressed="false"><span class="appearance-sample sample-glass" aria-hidden="true"><i class="fa-solid fa-droplet"></i></span><strong data-no-translate>ChrisGlass</strong><span class="choice-count" data-vote-count="chrisglass" data-no-translate>—</span></button>
+      <button type="button" data-appearance-choice="material" aria-pressed="false"><span class="appearance-sample sample-material" aria-hidden="true"><i class="fa-solid fa-palette"></i></span><strong data-no-translate>Material Chris</strong><span class="choice-count" data-vote-count="material" data-no-translate>—</span></button>
+      <button type="button" data-appearance-choice="materialglass" aria-pressed="false"><span class="appearance-sample sample-materialglass" aria-hidden="true"><i class="fa-solid fa-droplet"></i></span><strong data-no-translate>Material ChrisGlass</strong><span class="choice-count" data-vote-count="materialglass" data-no-translate>—</span></button>
+    </div>
+    <p class="settings-note material-accent-note">Uses the accent exposed by your browser, which may differ from its toolbar color.</p>
+    <p class="settings-note" id="appearanceCountStatus" role="status">Community counts are unavailable.</p>
+  </section>
+  <section class="settings-section" aria-labelledby="themeTitle"><h3 id="themeTitle"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i> Theme</h3><div class="theme-switch" data-mode="system">
   <input type="range" min="0" max="2" step="1" value="0" aria-label="Color theme: System, Light, Dark" aria-valuetext="System">
   <div class="theme-switch-labels" aria-hidden="true"><span title="System"><i class="fa-solid fa-desktop"></i></span><span><i class="fa-solid fa-sun"></i></span><span><i class="fa-solid fa-moon"></i></span></div>
-</div></nav></header>
+</div><div class="theme-mode-text" aria-hidden="true"><span>System</span><span>Light</span><span>Dark</span></div></section>
+  <section class="settings-section" aria-labelledby="languageTitle"><h3 id="languageTitle"><i class="fa-solid fa-globe" aria-hidden="true"></i> Language</h3><div class="language-control"><i class="fa-solid fa-globe" aria-hidden="true"></i><select class="language-select" aria-label="Language" data-no-translate><option value="en">English</option><option value="es">Español</option><option value="zh-Hans">简体中文</option><option value="my">မြန်မာ</option><option value="ja">日本語</option></select></div></section>
+  <p class="settings-credits">Glass materials adapted from <a href="https://github.com/seunghan91/ios27-design-system">iOS 27 Design System by Dcode Labs (Seunghan Kim)</a> and <a href="https://codepen.io/editor/jaredcwhite/pen/019f9caf-09be-707b-89f7-b1964b77a003">Liquid Aqua 2.0 by Jared White</a> (MIT).</p>
+</dialog>
+
 
     <main>
       <section class="hero">
@@ -51,18 +74,13 @@
       <p>Licensed under Apache 2.0.</p>
     </footer>
   </div>
-<script>
-const menuToggle = document.querySelector('.nav-toggle');
-menuToggle.addEventListener('click', () => {
-  const expanded = menuToggle.getAttribute('aria-expanded') !== 'true';
-  menuToggle.setAttribute('aria-expanded', String(expanded));
-  document.getElementById('navLinks').classList.toggle('open', expanded);
-});
-</script>
+
 <button class="back-top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
-<script src="assets/back-top.js"></script>
-<script src="assets/dropdowns.js"></script>
-<script src="assets/language-data.js"></script>
-<script src="assets/languages.js"></script>
+<script src="assets/back-top.js?v=3cf79f232ce6"></script>
+<script src="assets/dropdowns.js?v=07a56c7e31d6"></script>
+<script src="assets/language-data.js?v=7f11fa7c9061"></script>
+<script src="assets/languages.js?v=6b2d0366aa7f"></script>
+<script src="assets/preferences-config.js?v=6e62d2f5825b"></script>
+<script src="assets/preferences.js?v=9d292d00ba4d"></script>
 </body>
 </html>

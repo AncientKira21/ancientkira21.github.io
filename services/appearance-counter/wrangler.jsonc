@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lucily-appearance-counter",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-03",
+  "vars": { "ALLOWED_ORIGINS": "https://ancientkira21.github.io" },
+  "d1_databases": [{ "binding": "DB", "database_name": "lucily-appearance-choices", "database_id": "REPLACE_WITH_D1_DATABASE_ID" }]
+}

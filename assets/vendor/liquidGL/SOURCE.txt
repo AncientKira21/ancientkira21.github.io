@@ -1,0 +1,4 @@
+liquidGL v3.0.0
+https://github.com/naughtyduk/liquidGL
+Commit: 88f681ab7035fd55b04f63edff1841e32c4199e9
+Unmodified scripts/liquidGL.js. License included alongside.

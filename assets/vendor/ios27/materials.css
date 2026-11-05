@@ -1,0 +1,15 @@
+/* Adapted from seunghan91/ios27-design-system materials.json. MIT; see LICENSE. */
+:root[data-glass="true"][data-theme="dark"] { --ios27-surface: #1a1a1a; --ios27-rim: #a6a6a6; --ios27-shadow: 0.45; }
+:root[data-glass="true"][data-theme="light"] { --ios27-surface: #ffffff; --ios27-rim: #dbdbdb; --ios27-shadow: 0.25; }
+[data-glass="true"] { --ios27-glass-transparency:.5; --ios27-opacity:calc(0.7 * (1.6 - 1.1 * var(--ios27-glass-transparency))); --ios27-blur:6px; }
+[data-glass="true"] :is(.nav,.settings-panel,.dropdown-menu,.theme-card,.quick-link,.search-wrap,.btn-download,.btn-view,.back-top,.chip,.dropdown-trigger,.settings-trigger,.settings-close,.nav-toggle,.appearance-choices button,.appearance-switch,.theme-switch,.slider-glass-thumb,.nav-glass-cursor) {
+ background:color-mix(in srgb,var(--ios27-surface) calc(var(--ios27-opacity) * 100%),transparent);
+ backdrop-filter:blur(var(--ios27-blur)) saturate(1.8); -webkit-backdrop-filter:blur(var(--ios27-blur)) saturate(1.8);
+ border:1px solid color-mix(in srgb,var(--ios27-rim) 65%,transparent);
+ box-shadow:0 8px 48px rgb(0 0 0 / var(--ios27-shadow)),inset 0 40px 10px -40px #282828,inset 0 -40px 10px -40px #282828;
+}
+[data-glass="true"] :is(.slider-glass-thumb,.btn-download,.chip.active) { background:linear-gradient(var(--material-glass-tint,#987be333),var(--material-glass-tint,#987be333)),color-mix(in srgb,var(--ios27-surface) 74%,transparent); }
+[data-glass="true"] .chrisglass-pane { display:none; }
+[data-glass="true"] :is(.settings-panel,.theme-card,.quick-link,.dropdown-menu) { border-radius:34px; }
+[data-glass="true"] :is(.settings-heading,.theme-info,.dropdown-search,input:not([type="range"]),.nav-links) { background:transparent; }
+@media(prefers-reduced-transparency:reduce) { [data-glass="true"] { --ios27-glass-transparency:0; --ios27-opacity:1; } }

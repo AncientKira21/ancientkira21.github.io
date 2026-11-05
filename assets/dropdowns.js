@@ -96,7 +96,7 @@
       motion = menu.animate([
         { opacity: 1, transform: 'translateY(0) scale(1)' },
         { opacity: 0, transform: 'translateY(-8px) scale(.98)' }
-      ], { duration: 150, easing: 'ease-in', fill: 'forwards' });
+      ], { duration: 220, easing: 'ease-in', fill: 'forwards' });
       motion.finished.then(() => { if (id === motionId && !isOpen) menu.hidden = true; }).catch(() => {});
     }
     function visibleOptions() { return buttons.filter(button => !button.hidden); }
@@ -114,7 +114,7 @@
         motion = menu.animate([
           { opacity: 0, transform: 'translateY(-8px) scale(.98)' },
           { opacity: 1, transform: 'translateY(0) scale(1)' }
-        ], { duration: 180, easing: 'ease-out' });
+        ], { duration: 280, easing: 'cubic-bezier(.2,.8,.2,1)' });
       }
       search.focus({ preventScroll: true });
     }
