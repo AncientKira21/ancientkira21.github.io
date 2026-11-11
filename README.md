@@ -1,2 +1,2 @@
 # AncientKiraSite
-A site for Lucily by Ancient Kira
+A site for Trencom Software by Ancient Kira
