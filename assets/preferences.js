@@ -142,9 +142,14 @@
     panel.querySelectorAll('[data-vote-count]').forEach(node => { node.textContent = new Intl.NumberFormat().format(data.counts[node.dataset.voteCount]); });
     countStatus.textContent = 'Community choices · one saved choice per browser.';
   }
+  function unavailableCounts() {
+    panel.querySelectorAll('[data-vote-count]').forEach(node => { node.textContent = '—'; });
+    countStatus.textContent = endpoint ? 'Community counts are unavailable. Your appearance is saved.' : 'Community counter not connected. Appearance choices are saved on this device only.';
+  }
+  if (!endpoint) unavailableCounts();
   async function refreshCounts() {
-    if (!endpoint) return;
-    try { showCounts(await request('/counts')); } catch { countStatus.textContent = 'Community counts are unavailable. Your appearance is saved.'; }
+    if (!endpoint) { unavailableCounts(); return; }
+    try { showCounts(await request('/counts')); } catch { unavailableCounts(); }
   }
   async function sendChoice() {
     if (!endpoint || busy) return;
@@ -156,7 +161,7 @@
     try {
       showCounts(await request('/choice', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ voter, choice }) }));
       if (read('lucily-appearance-pending') === choice) write('lucily-appearance-pending', ''); success = true;
-    } catch { countStatus.textContent = 'Community counts are unavailable. Your appearance is saved.'; }
+    } catch { unavailableCounts(); }
     finally { busy = false; if (success && read('lucily-appearance-pending')) sendChoice(); }
   }
   function closePanel() {

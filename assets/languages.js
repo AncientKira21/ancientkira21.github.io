@@ -19,10 +19,10 @@
       key = count[2].startsWith('theme') ? '{count} themes available' : count[1] === '1' ? '{count} project available' : '{count} projects available';
     }
     let result;
-    if (key.startsWith('Lucily | ')) {
-      const page = key.slice(9);
+    if (key.startsWith('Trencom Software | ')) {
+      const page = key.slice('Trencom Software | '.length);
       const title = page === 'Page Not Found' ? 'not available!' : page === 'MCArem AI Guide' ? 'MCArem AI Guide' : page;
-      result = 'Lucily | ' + (window.siteTranslations[title]?.[language] || title);
+      result = 'Trencom Software | ' + (window.siteTranslations[title]?.[language] || title);
     } else result = window.siteTranslations[key]?.[language] || key;
     return result.replace(/\{(\w+)\}/g, (match, name) => values[name] ?? match);
   }

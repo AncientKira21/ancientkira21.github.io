@@ -36,11 +36,11 @@ window.siteTranslations = {
     "my": "ကုဒ်နဲ့ ဒီဇိုင်း။",
     "ja": "いろいろ作ってみる。"
   },
-  "I'm Ancient Kira, from Lucily, exploring the intersection of creativity, technical craft, and digital design. Building projects that blend storytelling with technical innovation.": {
-    "es": "Soy Ancient Kira, de Lucily. Me gusta mezclar creatividad, código y diseño para hacer proyectos con ideas e historias propias.",
-    "zh-Hans": "我是 Lucily 的 Ancient Kira，喜欢把创意、代码和设计放在一起，做些有故事、有自己想法的项目。",
-    "my": "ကျွန်တော်က Lucily က Ancient Kira ပါ။ စိတ်ကူး၊ ကုဒ်နဲ့ ဒီဇိုင်းကို ပေါင်းပြီး ကိုယ်ပိုင်ဇာတ်လမ်းနဲ့ အိုင်ဒီယာပါတဲ့ ပရောဂျက်တွေ လုပ်ရတာ ကြိုက်ပါတယ်။",
-    "ja": "LucilyのAncient Kiraです。アイデアとコード、デザインを組み合わせて、ちょっとした物語のあるものを作っています。"
+  "I'm Ancient Kira, from Trencom Software, exploring the intersection of creativity, technical craft, and digital design. Building projects that blend storytelling with technical innovation.": {
+    "es": "Soy Ancient Kira, de Trencom Software. Me gusta mezclar creatividad, código y diseño para hacer proyectos con ideas e historias propias.",
+    "zh-Hans": "我是 Trencom Software 的 Ancient Kira，喜欢把创意、代码和设计放在一起，做些有故事、有自己想法的项目。",
+    "my": "ကျွန်တော်က Trencom Software က Ancient Kira ပါ။ စိတ်ကူး၊ ကုဒ်နဲ့ ဒီဇိုင်းကို ပေါင်းပြီး ကိုယ်ပိုင်ဇာတ်လမ်းနဲ့ အိုင်ဒီယာပါတဲ့ ပရောဂျက်တွေ လုပ်ရတာ ကြိုက်ပါတယ်။",
+    "ja": "Trencom SoftwareのAncient Kiraです。アイデアとコード、デザインを組み合わせて、ちょっとした物語のあるものを作っています。"
   },
   "View Projects": {
     "es": "Ver proyectos",
